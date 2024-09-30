@@ -22,9 +22,9 @@
     "@storybook/react": "^3.2.8",
     "babel-plugin-transform-class-properties": "6.24.1",
     "babel-preset-env": "^1.6.1",
-    "react-redux": "^5.0.6",
-    "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0",
+    "redux": "^4.2.1",
+    "react-redux": "^8.1.1",
+    "redux-thunk": "^2.4.2",
     "typed.js": "^2.0.5"
   }
 }

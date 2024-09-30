@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 class DropDownEditor extends Component {
   constructor(props) {
     super(props);
-    let options = props.options;
+    let { options } = props;
     if (props.getOptions) {
       options = props.getOptions(
         this.setOptions.bind(this),
@@ -35,7 +35,9 @@ class DropDownEditor extends Component {
   }
 
   render() {
-    const { defaultValue, didMount, getOptions, className, ...rest } = this.props;
+    const {
+      defaultValue, didMount, getOptions, className, ...rest
+    } = this.props;
     const editorClass = cs('form-control editor edit-select', className);
 
     const attr = {
@@ -46,7 +48,7 @@ class DropDownEditor extends Component {
     return (
       <select
         { ...attr }
-        ref={ node => this.select = node }
+        ref={ (node) => this.select = node }
         defaultValue={ defaultValue }
       >
         {

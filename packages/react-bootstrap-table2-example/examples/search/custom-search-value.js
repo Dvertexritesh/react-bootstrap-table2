@@ -76,16 +76,17 @@ const columns = [{
 </ToolkitProvider>
 `;
 
-export default () => (
-  <div>
-    <ToolkitProvider
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      search
-    >
-      {
-        props => (
+export default function () {
+  return (
+    <div>
+      <ToolkitProvider
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        search
+      >
+        {
+        (props) => (
           <div>
             <h3>Try to Search Bob, Cat or Allen instead of 0, 1 or 2</h3>
             <SearchBar { ...props.searchProps } />
@@ -96,7 +97,8 @@ export default () => (
           </div>
         )
       }
-    </ToolkitProvider>
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+      </ToolkitProvider>
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

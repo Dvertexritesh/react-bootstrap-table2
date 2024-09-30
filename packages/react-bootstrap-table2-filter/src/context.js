@@ -20,7 +20,7 @@ export default (
       data: PropTypes.array.isRequired,
       columns: PropTypes.array.isRequired,
       dataChangeListener: PropTypes.object
-    }
+    };
 
     constructor(props) {
       super(props);
@@ -42,14 +42,13 @@ export default (
     onFilter(column, filterType, initialize = false) {
       return (filterVal) => {
         // watch out here if migration to context API, #334
-        const currFilters = Object.assign({}, this.currFilters);
+        const currFilters = { ...this.currFilters };
         this.clearFilters = {};
         const { dataField, filter } = column;
 
-        const needClearFilters =
-          !_.isDefined(filterVal) ||
-          filterVal === '' ||
-          filterVal.length === 0;
+        const needClearFilters = !_.isDefined(filterVal)
+          || filterVal === ''
+          || filterVal.length === 0;
 
         if (needClearFilters) {
           delete currFilters[dataField];
@@ -60,7 +59,9 @@ export default (
             comparator = (filterType === FILTER_TYPE.SELECT ? EQ : LIKE),
             caseSensitive = false
           } = filter.props;
-          currFilters[dataField] = { filterVal, filterType, comparator, caseSensitive };
+          currFilters[dataField] = {
+            filterVal, filterType, comparator, caseSensitive
+          };
         }
 
         this.currFilters = currFilters;
@@ -95,7 +96,9 @@ export default (
     }
 
     doFilter(props, ignoreEmitDataChange = false) {
-      const { dataChangeListener, data, columns, filter } = props;
+      const {
+        dataChangeListener, data, columns, filter
+      } = props;
       const result = filters(data, columns, _)(this.currFilters, this.clearFilters);
       if (filter.afterFilter) {
         filter.afterFilter(result, this.currFilters);

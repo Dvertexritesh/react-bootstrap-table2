@@ -23,7 +23,7 @@ const columns = [{
 }, {
   dataField: 'quality',
   text: 'Product Quality',
-  formatter: cell => selectOptions[cell],
+  formatter: (cell) => selectOptions[cell],
   filter: selectFilter({
     options: selectOptions,
     getFilter: (filter) => {
@@ -81,16 +81,18 @@ export default () => (
 );
 `;
 
-export default () => (
-  <div>
-    <button className="btn btn-lg btn-primary" onClick={ handleClick }>{' filter columns by option "good" '}</button>
+export default function () {
+  return (
+    <div>
+      <button className="btn btn-lg btn-primary" onClick={ handleClick }>{' filter columns by option "good" '}</button>
 
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      filter={ filterFactory() }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        filter={ filterFactory() }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

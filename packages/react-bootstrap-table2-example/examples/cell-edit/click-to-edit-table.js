@@ -42,15 +42,17 @@ const columns = [{
 />
 `;
 
-export default () => (
-  <div>
-    <h3>Click to edit cell</h3>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      cellEdit={ cellEditFactory({ mode: 'click' }) }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <h3>Click to edit cell</h3>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        cellEdit={ cellEditFactory({ mode: 'click' }) }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

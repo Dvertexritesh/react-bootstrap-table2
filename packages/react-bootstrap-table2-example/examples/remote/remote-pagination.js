@@ -73,19 +73,23 @@ class Container extends React.Component {
 }
 `;
 
-const RemotePagination = ({ data, page, sizePerPage, onTableChange, totalSize }) => (
-  <div>
-    <BootstrapTable
-      remote
-      keyField="id"
-      data={ data }
-      columns={ columns }
-      pagination={ paginationFactory({ page, sizePerPage, totalSize }) }
-      onTableChange={ onTableChange }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+function RemotePagination({
+  data, page, sizePerPage, onTableChange, totalSize
+}) {
+  return (
+    <div>
+      <BootstrapTable
+        remote
+        keyField="id"
+        data={ data }
+        columns={ columns }
+        pagination={ paginationFactory({ page, sizePerPage, totalSize }) }
+        onTableChange={ onTableChange }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}
 
 RemotePagination.propTypes = {
   data: PropTypes.array.isRequired,
@@ -114,7 +118,7 @@ class Container extends React.Component {
         sizePerPage
       }));
     }, 2000);
-  }
+  };
 
   render() {
     const { data, sizePerPage, page } = this.state;

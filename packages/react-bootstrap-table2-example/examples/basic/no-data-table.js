@@ -29,9 +29,11 @@ function indication() {
 <BootstrapTable keyField='id' data={ [] } columns={ columns } noDataIndication={ indication } />
 `;
 
-export default () => (
-  <div>
-    <BootstrapTable keyField="id" data={ [] } columns={ columns } noDataIndication="Table is Empty" />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable keyField="id" data={ [] } columns={ columns } noDataIndication="Table is Empty" />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

@@ -44,15 +44,17 @@ const columns = [{
 />
 `;
 
-export default () => (
-  <div>
-    <h3>Only Product Price is bigger than 2101 is editable</h3>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      cellEdit={ cellEditFactory({ mode: 'click' }) }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <h3>Only Product Price is bigger than 2101 is editable</h3>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        cellEdit={ cellEditFactory({ mode: 'click' }) }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

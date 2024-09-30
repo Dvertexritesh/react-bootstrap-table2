@@ -32,7 +32,7 @@ const columns1 = [{
 }, {
   dataField: 'quality',
   text: 'Product Quailty',
-  formatter: cell => selectOptions[cell],
+  formatter: (cell) => selectOptions[cell],
   filter: selectFilter({
     options: selectOptions
   })
@@ -47,7 +47,7 @@ const columns2 = [{
 }, {
   dataField: 'quality',
   text: 'Product Quailty',
-  formatter: cell => selectOptionsArr.filter(opt => opt.value === cell)[0].label || '',
+  formatter: (cell) => selectOptionsArr.filter((opt) => opt.value === cell)[0].label || '',
   filter: selectFilter({
     options: selectOptionsArr
   })
@@ -62,7 +62,7 @@ const columns3 = [{
 }, {
   dataField: 'quality',
   text: 'Product Quailty',
-  formatter: cell => selectOptionsArr.filter(opt => opt.value === cell)[0].label || '',
+  formatter: (cell) => selectOptionsArr.filter((opt) => opt.value === cell)[0].label || '',
   filter: selectFilter({
     options: () => selectOptionsArr
   })
@@ -122,29 +122,31 @@ const columns3 = [..., {
 <BootstrapTable keyField='id' data={ products } columns={ columns3 } filter={ filterFactory() } />
 `;
 
-export default () => (
-  <div>
-    <h2>Options as an object</h2>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns1 }
-      filter={ filterFactory() }
-    />
-    <h2>Options as an array</h2>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns2 }
-      filter={ filterFactory() }
-    />
-    <h2>Options as a function which return an array</h2>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns3 }
-      filter={ filterFactory() }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <h2>Options as an object</h2>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns1 }
+        filter={ filterFactory() }
+      />
+      <h2>Options as an array</h2>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns2 }
+        filter={ filterFactory() }
+      />
+      <h2>Options as a function which return an array</h2>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns3 }
+        filter={ filterFactory() }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

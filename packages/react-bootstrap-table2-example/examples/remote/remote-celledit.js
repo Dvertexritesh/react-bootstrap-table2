@@ -89,8 +89,7 @@ class Container extends React.Component {
 }
 `;
 
-
-const RemoteCellEdit = (props) => {
+function RemoteCellEdit(props) {
   const cellEdit = {
     mode: 'click',
     errorMessage: props.errorMessage
@@ -109,7 +108,7 @@ const RemoteCellEdit = (props) => {
       <Code>{ sourceCode }</Code>
     </div>
   );
-};
+}
 
 RemoteCellEdit.propTypes = {
   data: PropTypes.array.isRequired,
@@ -148,7 +147,7 @@ class Container extends React.Component {
         }));
       }
     }, 2000);
-  }
+  };
 
   render() {
     return (

@@ -14,7 +14,7 @@ describe('SortContext', () => {
 
   let data;
 
-  const mockBase = jest.fn((props => (
+  const mockBase = jest.fn(((props) => (
     <BootstrapTable
       data={ data }
       columns={ columns }
@@ -60,7 +60,7 @@ describe('SortContext', () => {
       >
         <SortContext.Consumer>
           {
-            sortProps => mockBase(sortProps)
+            (sortProps) => mockBase(sortProps)
           }
         </SortContext.Consumer>
       </SortContext.Provider>

@@ -85,11 +85,13 @@ const rowStyle2 = (row, rowIndex) => {
 <BootstrapTable keyField='id' data={ products } columns={ columns } rowStyle={ rowStyle2 } />
 `;
 
-export default () => (
-  <div>
-    <BootstrapTable keyField="id" data={ products } columns={ columns } rowStyle={ rowStyle1 } />
-    <Code>{ sourceCode1 }</Code>
-    <BootstrapTable keyField="id" data={ products } columns={ columns } rowStyle={ rowStyle2 } />
-    <Code>{ sourceCode2 }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable keyField="id" data={ products } columns={ columns } rowStyle={ rowStyle1 } />
+      <Code>{ sourceCode1 }</Code>
+      <BootstrapTable keyField="id" data={ products } columns={ columns } rowStyle={ rowStyle2 } />
+      <Code>{ sourceCode2 }</Code>
+    </div>
+  );
+}

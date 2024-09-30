@@ -54,11 +54,11 @@ const pageListRenderer = ({
   pages,
   onPageChange
 }) => {
-  const pageWithoutIndication = pages.filter(p => typeof p.page !== 'string');
+  const pageWithoutIndication = pages.filter((p) => typeof p.page !== 'string');
   return (
     <div>
       {
-        pageWithoutIndication.map(p => (
+        pageWithoutIndication.map((p) => (
           <button className="btn btn-success" onClick={ () => onPageChange(p.page) }>{ p.page }</button>
         ))
       }
@@ -70,9 +70,11 @@ const options = {
   pageListRenderer
 };
 
-export default () => (
-  <div>
-    <BootstrapTable keyField="id" data={ products } columns={ columns } pagination={ paginationFactory(options) } />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable keyField="id" data={ products } columns={ columns } pagination={ paginationFactory(options) } />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

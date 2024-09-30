@@ -42,10 +42,12 @@ const columns = [{
 <BootstrapTable keyField='id' data={ products } columns={ columns } />
 `;
 
-export default () => (
-  <div>
-    <h3>Try to Click on Product ID header column</h3>
-    <BootstrapTable keyField="id" data={ products } columns={ columns } />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <h3>Try to Click on Product ID header column</h3>
+      <BootstrapTable keyField="id" data={ products } columns={ columns } />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

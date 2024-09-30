@@ -3,9 +3,9 @@ import PaginationTotal from './pagination-total';
 import standaloneAdapter from './standalone-adapter';
 import paginationTotalAdapter from './pagination-total-adapter';
 
-const PaginationTotalStandalone = props => (
-  <PaginationTotal { ...props } />
-);
+function PaginationTotalStandalone(props) {
+  return <PaginationTotal { ...props } />;
+}
 
 export default
 standaloneAdapter(paginationTotalAdapter(PaginationTotalStandalone));

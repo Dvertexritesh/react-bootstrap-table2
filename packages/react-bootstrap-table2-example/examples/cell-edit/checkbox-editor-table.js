@@ -50,15 +50,17 @@ const columns = [{
 />
 `;
 
-export default () => (
-  <div>
-    <h3>Checkbox Editor</h3>
-    <BootstrapTable
-      keyField="id"
-      data={ todos }
-      columns={ columns }
-      cellEdit={ cellEditFactory({ mode: 'click', blurToSave: true }) }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <h3>Checkbox Editor</h3>
+      <BootstrapTable
+        keyField="id"
+        data={ todos }
+        columns={ columns }
+        cellEdit={ cellEditFactory({ mode: 'click', blurToSave: true }) }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

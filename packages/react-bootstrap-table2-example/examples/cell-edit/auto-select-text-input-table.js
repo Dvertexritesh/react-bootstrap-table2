@@ -59,20 +59,22 @@ const columns = [{
 />
 `;
 
-export default () => (
-  <div>
-    <h3>Auto Select Text Input Field When Editing</h3>
-    <BootstrapTable
-      keyField="id"
-      data={ jobs }
-      columns={ columns }
-      cellEdit={
+export default function () {
+  return (
+    <div>
+      <h3>Auto Select Text Input Field When Editing</h3>
+      <BootstrapTable
+        keyField="id"
+        data={ jobs }
+        columns={ columns }
+        cellEdit={
         cellEditFactory({
           mode: 'click',
           autoSelectText: true
         })
       }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

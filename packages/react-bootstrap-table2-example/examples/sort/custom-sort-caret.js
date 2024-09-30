@@ -17,8 +17,22 @@ const columns = [{
   sort: true,
   sortCaret: (order, column) => {
     if (!order) return (<span>&nbsp;&nbsp;Desc/Asc</span>);
-    else if (order === 'asc') return (<span>&nbsp;&nbsp;Desc/<font color="red">Asc</font></span>);
-    else if (order === 'desc') return (<span>&nbsp;&nbsp;<font color="red">Desc</font>/Asc</span>);
+    if (order === 'asc') {
+      return (
+        <span>
+&nbsp;&nbsp;Desc/
+          <font color="red">Asc</font>
+        </span>
+      );
+    }
+    if (order === 'desc') {
+      return (
+        <span>
+          <font color="red">Desc</font>
+          /Asc
+        </span>
+      );
+    }
     return null;
   }
 }, {
@@ -51,9 +65,11 @@ const columns = [{
 <BootstrapTable keyField='id' data={ products } columns={ columns } />
 `;
 
-export default () => (
-  <div>
-    <BootstrapTable keyField="id" data={ products } columns={ columns } />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable keyField="id" data={ products } columns={ columns } />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

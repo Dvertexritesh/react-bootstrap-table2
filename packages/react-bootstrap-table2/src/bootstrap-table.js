@@ -31,7 +31,7 @@ class BootstrapTable extends PropsBaseResolver(Component) {
   // Exposed APIs
   getData = () => {
     return this.visibleRows();
-  }
+  };
 
   render() {
     const { loading, overlay } = this.props;
@@ -79,9 +79,9 @@ class BootstrapTable extends PropsBaseResolver(Component) {
       [bootstrap4 ? 'table-sm' : 'table-condensed']: condensed
     }, classes);
 
-    const hasFilters = columns.some(col => col.filter || col.filterRenderer);
+    const hasFilters = columns.some((col) => col.filter || col.filterRenderer);
 
-    const hasFooter = _.filter(columns, col => _.has(col, 'footer')).length > 0;
+    const hasFooter = _.filter(columns, (col) => _.has(col, 'footer')).length > 0;
 
     const tableCaption = (
       caption && <Caption bootstrap4={ bootstrap4 }>{ caption }</Caption>

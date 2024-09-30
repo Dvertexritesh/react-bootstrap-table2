@@ -15,12 +15,12 @@ export default class RowAggregator extends shouldUpdater(eventDelegater(React.Co
   static propTypes = {
     attrs: PropTypes.object,
     style: PropTypes.object
-  }
+  };
 
   static defaultProps = {
     attrs: {},
     style: {}
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -31,12 +31,12 @@ export default class RowAggregator extends shouldUpdater(eventDelegater(React.Co
 
   shouldComponentUpdate(nextProps) {
     if (
-      this.props.selected !== nextProps.selected ||
-      this.props.expanded !== nextProps.expanded ||
-      this.props.expandable !== nextProps.expandable ||
-      this.props.selectable !== nextProps.selectable ||
-      this.props.selectRow.hideSelectColumn !== nextProps.selectRow.hideSelectColumn ||
-      this.shouldUpdatedBySelfProps(nextProps)
+      this.props.selected !== nextProps.selected
+      || this.props.expanded !== nextProps.expanded
+      || this.props.expandable !== nextProps.expandable
+      || this.props.selectable !== nextProps.selectable
+      || this.props.selectRow.hideSelectColumn !== nextProps.selectRow.hideSelectColumn
+      || this.shouldUpdatedBySelfProps(nextProps)
     ) {
       this.shouldUpdateRowContent = this.shouldRowContentUpdate(nextProps);
       return true;

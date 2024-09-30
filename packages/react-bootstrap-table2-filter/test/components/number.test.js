@@ -6,7 +6,6 @@ import NumberFilter from '../../src/components/number';
 import { FILTER_TYPE } from '../../src/const';
 import * as Comparator from '../../src/comparison';
 
-
 describe('Number Filter', () => {
   let wrapper;
 

@@ -37,15 +37,17 @@ const columns = [{
 <BootstrapTable keyField='id' data={ products } columns={ columns } filter={ filterFactory() } />
 `;
 
-export default () => (
-  <div>
-    <h3>Product Name is case sensitive</h3>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      filter={ filterFactory() }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <h3>Product Name is case sensitive</h3>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        filter={ filterFactory() }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

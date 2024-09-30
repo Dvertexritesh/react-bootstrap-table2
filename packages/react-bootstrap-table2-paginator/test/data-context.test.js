@@ -22,8 +22,10 @@ describe('PaginationDataContext', () => {
 
   const defaultPagination = { options: { totalSize: data.length }, createContext: jest.fn() };
 
-  const MockComponent = () => null;
-  const renderMockComponent = jest.fn((props => (
+  function MockComponent() {
+    return null;
+  }
+  const renderMockComponent = jest.fn(((props) => (
     <MockComponent { ...props } />
   )));
 
@@ -48,7 +50,7 @@ describe('PaginationDataContext', () => {
       >
         <PaginationDataContext.Consumer>
           {
-            paginationProps => renderMockComponent(paginationProps)
+            (paginationProps) => renderMockComponent(paginationProps)
           }
         </PaginationDataContext.Consumer>
       </PaginationDataContext.Provider>

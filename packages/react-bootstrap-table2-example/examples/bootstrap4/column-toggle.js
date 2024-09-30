@@ -56,16 +56,17 @@ const columns = [{
 </ToolkitProvider>
 `;
 
-export default () => (
-  <div>
-    <ToolkitProvider
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      columnToggle
-    >
-      {
-        props => (
+export default function () {
+  return (
+    <div>
+      <ToolkitProvider
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        columnToggle
+      >
+        {
+        (props) => (
           <div>
             <ToggleList { ...props.columnToggleProps } />
             <hr />
@@ -75,7 +76,8 @@ export default () => (
           </div>
         )
       }
-    </ToolkitProvider>
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+      </ToolkitProvider>
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

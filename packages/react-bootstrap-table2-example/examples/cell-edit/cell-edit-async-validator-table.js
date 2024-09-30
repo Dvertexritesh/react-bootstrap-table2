@@ -84,18 +84,20 @@ const columns = [{
 />
 `;
 
-export default () => (
-  <div>
-    <h3>Product Price should bigger than $2000</h3>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      cellEdit={ cellEditFactory({
-        mode: 'click',
-        blurToSave: true
-      }) }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <h3>Product Price should bigger than $2000</h3>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        cellEdit={ cellEditFactory({
+          mode: 'click',
+          blurToSave: true
+        }) }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

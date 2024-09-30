@@ -16,8 +16,11 @@ describe('overlayFactory', () => {
         </tr>
       </thead>
       <tbody>
-        { [1, 2].map(row => (
-          <tr key={ row }><td>{ row }</td><td>test</td></tr>
+        { [1, 2].map((row) => (
+          <tr key={ row }>
+            <td>{ row }</td>
+            <td>test</td>
+          </tr>
         ))}
       </tbody>
     </table>

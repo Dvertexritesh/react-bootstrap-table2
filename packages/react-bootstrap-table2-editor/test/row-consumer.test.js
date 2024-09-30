@@ -24,12 +24,14 @@ describe('Row Consumer', () => {
   const value = _.get(row, keyField);
 
   const { Provider } = createCellEditContext(_, op, false, jest.fn());
-  const BaseComponent = () => null;
+  function BaseComponent() {
+    return null;
+  }
 
   describe('if cellEdit.nonEditableRows is undefined', () => {
     beforeEach(() => {
       const WithCellEditComponent = withRowLevelCellEdit(
-        props => <BaseComponent { ...props } />,
+        (props) => <BaseComponent { ...props } />,
         false
       );
       cellEdit = cellEditFactory({ mode: CLICK_TO_CELL_EDIT });
@@ -53,7 +55,7 @@ describe('Row Consumer', () => {
     describe('if value prop is match in one of cellEdit.nonEditableRows', () => {
       beforeEach(() => {
         const WithCellEditComponent = withRowLevelCellEdit(
-          props => <BaseComponent { ...props } />,
+          (props) => <BaseComponent { ...props } />,
           false
         );
         cellEdit = cellEditFactory({ mode: CLICK_TO_CELL_EDIT, nonEditableRows });
@@ -73,7 +75,7 @@ describe('Row Consumer', () => {
     describe('if value prop is not match in one of cellEdit.nonEditableRows', () => {
       beforeEach(() => {
         const WithCellEditComponent = withRowLevelCellEdit(
-          props => <BaseComponent { ...props } />,
+          (props) => <BaseComponent { ...props } />,
           false
         );
         cellEdit = cellEditFactory({ mode: CLICK_TO_CELL_EDIT, nonEditableRows });
@@ -94,7 +96,7 @@ describe('Row Consumer', () => {
   describe(`if selectRowEnabled argument is true and cellEdit.mode is ${DBCLICK_TO_CELL_EDIT}`, () => {
     beforeEach(() => {
       const WithCellEditComponent = withRowLevelCellEdit(
-        props => <BaseComponent { ...props } />,
+        (props) => <BaseComponent { ...props } />,
         true
       );
       cellEdit = cellEditFactory({ mode: DBCLICK_TO_CELL_EDIT });
@@ -116,7 +118,7 @@ describe('Row Consumer', () => {
     const cidx = 1;
     beforeEach(() => {
       const WithCellEditComponent = withRowLevelCellEdit(
-        props => <BaseComponent { ...props } />,
+        (props) => <BaseComponent { ...props } />,
         false
       );
       cellEdit = cellEditFactory({ mode: CLICK_TO_CELL_EDIT });

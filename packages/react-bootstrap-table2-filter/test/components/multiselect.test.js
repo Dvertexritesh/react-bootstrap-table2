@@ -5,7 +5,6 @@ import { mount } from 'enzyme';
 import MultiSelectFilter from '../../src/components/multiselect';
 import { FILTER_TYPE } from '../../src/const';
 
-
 describe('Multi Select Filter', () => {
   let wrapper;
   let instance;
@@ -348,7 +347,8 @@ describe('Multi Select Filter', () => {
       expect(onFilter.calledWith(column, FILTER_TYPE.MULTISELECT)).toBeTruthy();
       expect(onFilterFirstReturn.calledOnce).toBeTruthy();
       expect(onFilterFirstReturn.calledWith(
-        event.target.selectedOptions.map(item => item.value))).toBeTruthy();
+        event.target.selectedOptions.map((item) => item.value)
+      )).toBeTruthy();
     });
   });
 });

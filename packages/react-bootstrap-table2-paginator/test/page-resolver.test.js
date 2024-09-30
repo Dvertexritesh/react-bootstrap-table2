@@ -3,14 +3,14 @@ import { shallow } from 'enzyme';
 
 import pageResolver from '../src/page-resolver';
 
-const extendTo = Base =>
-  class MockComponent extends Base {
-    constructor(props) {
-      super(props);
-      this.state = this.initialState();
-    }
-    render() { return null; }
-  };
+const extendTo = (Base) => class MockComponent extends Base {
+  constructor(props) {
+    super(props);
+    this.state = this.initialState();
+  }
+
+  render() { return null; }
+};
 
 describe('PageResolver', () => {
   const ExtendBase = pageResolver(Component);
@@ -45,7 +45,8 @@ describe('PageResolver', () => {
       expect(instance.state.totalPages).toEqual(instance.calculateTotalPage());
       expect(instance.state.lastPage).toBeDefined();
       expect(instance.state.lastPage).toEqual(
-        instance.calculateLastPage(instance.state.totalPages));
+        instance.calculateLastPage(instance.state.totalPages)
+      );
     });
   });
 
@@ -171,16 +172,20 @@ describe('PageResolver', () => {
       it('should getting pages list correctly', () => {
         const instance = wrapper.instance();
         expect(instance.calculatePages(instance.state.totalPages, instance.state.lastPage)).toEqual(
-          [props.prePageText, 1, 2, 3, 4, 5, props.nextPageText, props.lastPageText]);
+          [props.prePageText, 1, 2, 3, 4, 5, props.nextPageText, props.lastPageText]
+        );
 
         expect(instance.calculatePages(4, 4)).toEqual(
-          [props.prePageText, 1, 2, 3, 4, props.nextPageText]);
+          [props.prePageText, 1, 2, 3, 4, props.nextPageText]
+        );
       });
     });
 
     describe('calculate by props.currPage', () => {
       const props = createMockProps();
-      const { firstPageText, prePageText, nextPageText, lastPageText } = props;
+      const {
+        firstPageText, prePageText, nextPageText, lastPageText
+      } = props;
 
       it('should getting pages list correctly', () => {
         const currPages = Array.from(Array(10).keys());
@@ -188,27 +193,32 @@ describe('PageResolver', () => {
           props.currPage = currPage + 1;
           wrapper = shallow(<MockComponent { ...props } />);
           const instance = wrapper.instance();
-          const pageList = instance.calculatePages(
-            instance.state.totalPages, instance.state.lastPage);
+          const pageList = instance.calculatePages(instance.state.totalPages, instance.state.lastPage);
 
           if (props.currPage < 4) {
             expect(pageList).toEqual(
-              [prePageText, 1, 2, 3, 4, 5, nextPageText, lastPageText]);
+              [prePageText, 1, 2, 3, 4, 5, nextPageText, lastPageText]
+            );
           } else if (props.currPage > 7) {
             expect(pageList).toEqual(
-              [firstPageText, prePageText, 6, 7, 8, 9, 10, nextPageText]);
+              [firstPageText, prePageText, 6, 7, 8, 9, 10, nextPageText]
+            );
           } else if (props.currPage === 4) {
             expect(pageList).toEqual(
-              [firstPageText, prePageText, 2, 3, 4, 5, 6, nextPageText, lastPageText]);
+              [firstPageText, prePageText, 2, 3, 4, 5, 6, nextPageText, lastPageText]
+            );
           } else if (props.currPage === 5) {
             expect(pageList).toEqual(
-              [firstPageText, prePageText, 3, 4, 5, 6, 7, nextPageText, lastPageText]);
+              [firstPageText, prePageText, 3, 4, 5, 6, 7, nextPageText, lastPageText]
+            );
           } else if (props.currPage === 6) {
             expect(pageList).toEqual(
-              [firstPageText, prePageText, 4, 5, 6, 7, 8, nextPageText, lastPageText]);
+              [firstPageText, prePageText, 4, 5, 6, 7, 8, nextPageText, lastPageText]
+            );
           } else {
             expect(pageList).toEqual(
-              [firstPageText, prePageText, 5, 6, 7, 8, 9, nextPageText, lastPageText]);
+              [firstPageText, prePageText, 5, 6, 7, 8, 9, nextPageText, lastPageText]
+            );
           }
         });
       });
@@ -225,9 +235,8 @@ describe('PageResolver', () => {
           props.paginationSize = paginationSize;
           wrapper = shallow(<MockComponent { ...props } />);
           const instance = wrapper.instance();
-          const pageList = instance.calculatePages(
-            instance.state.totalPages, instance.state.lastPage);
-          const result = pageList.filter(p => indicators.indexOf(p) === -1);
+          const pageList = instance.calculatePages(instance.state.totalPages, instance.state.lastPage);
+          const result = pageList.filter((p) => indicators.indexOf(p) === -1);
           expect(result.length).toEqual(props.paginationSize);
         });
       });
@@ -241,8 +250,7 @@ describe('PageResolver', () => {
             props.currPage = currPage;
             wrapper = shallow(<MockComponent { ...props } />);
             const instance = wrapper.instance();
-            const pageList = instance.calculatePages(
-              instance.state.totalPages, instance.state.lastPage);
+            const pageList = instance.calculatePages(instance.state.totalPages, instance.state.lastPage);
             expect(pageList.indexOf(props.lastPageText) > -1).toBeTruthy();
           });
         });
@@ -254,8 +262,7 @@ describe('PageResolver', () => {
             props.currPage = currPage;
             wrapper = shallow(<MockComponent { ...props } />);
             const instance = wrapper.instance();
-            const pageList = instance.calculatePages(
-              instance.state.totalPages, instance.state.lastPage);
+            const pageList = instance.calculatePages(instance.state.totalPages, instance.state.lastPage);
             expect(pageList.indexOf(props.firstPageText) > -1).toBeTruthy();
           });
         });
@@ -271,8 +278,7 @@ describe('PageResolver', () => {
           props.withFirstAndLast = false;
           wrapper = shallow(<MockComponent { ...props } />);
           const instance = wrapper.instance();
-          const pageList = instance.calculatePages(
-            instance.state.totalPages, instance.state.lastPage);
+          const pageList = instance.calculatePages(instance.state.totalPages, instance.state.lastPage);
           expect(pageList.indexOf(props.lastPageText) > -1).toBeFalsy();
           expect(pageList.indexOf(props.firstPageText) > -1).toBeFalsy();
         });
@@ -291,10 +297,10 @@ describe('PageResolver', () => {
 
       it('should getting last page correctly', () => {
         const instance = wrapper.instance();
-        const pageList = instance.calculatePages(
-          instance.state.totalPages, instance.state.lastPage);
+        const pageList = instance.calculatePages(instance.state.totalPages, instance.state.lastPage);
         expect(pageList).toEqual(
-          [props.prePageText, -2, -1, 0, 1, 2, props.nextPageText, props.lastPageText]);
+          [props.prePageText, -2, -1, 0, 1, 2, props.nextPageText, props.lastPageText]
+        );
       });
     });
 
@@ -311,8 +317,7 @@ describe('PageResolver', () => {
 
       it('should always having next and previous page indication', () => {
         const instance = wrapper.instance();
-        const pageList = instance.calculatePages(
-          instance.state.totalPages, instance.state.lastPage);
+        const pageList = instance.calculatePages(instance.state.totalPages, instance.state.lastPage);
         expect(pageList.indexOf(props.nextPageText) > -1).toBeTruthy();
         expect(pageList.indexOf(props.prePageText) > -1).toBeTruthy();
       });
@@ -329,8 +334,7 @@ describe('PageResolver', () => {
 
       it('should getting empty array', () => {
         const instance = wrapper.instance();
-        const pageList = instance.calculatePages(
-          instance.state.totalPages, instance.state.lastPage);
+        const pageList = instance.calculatePages(instance.state.totalPages, instance.state.lastPage);
         expect(pageList).toEqual([]);
       });
     });
@@ -346,8 +350,7 @@ describe('PageResolver', () => {
         const mockElement = React.createElement(MockComponent, props, null);
         wrapper = shallow(mockElement);
         instance = wrapper.instance();
-        const pageList = instance.calculatePages(
-          instance.state.totalPages, instance.state.lastPage);
+        const pageList = instance.calculatePages(instance.state.totalPages, instance.state.lastPage);
         pageStatus = instance.calculatePageStatus(pageList, instance.state.lastPage);
       });
 
@@ -361,11 +364,11 @@ describe('PageResolver', () => {
       });
 
       it('should mark active status as true when it is props.currPage', () => {
-        expect(pageStatus.find(p => p.page === props.currPage).active).toBeTruthy();
+        expect(pageStatus.find((p) => p.page === props.currPage).active).toBeTruthy();
       });
 
       it('only have one page\'s active status is true', () => {
-        expect(pageStatus.filter(p => p.page === props.currPage).length).toEqual(1);
+        expect(pageStatus.filter((p) => p.page === props.currPage).length).toEqual(1);
       });
     });
 
@@ -376,11 +379,10 @@ describe('PageResolver', () => {
           const mockElement = React.createElement(MockComponent, props, null);
           wrapper = shallow(mockElement);
           instance = wrapper.instance();
-          const pageList = instance.calculatePages(
-            instance.state.totalPages, instance.state.lastPage);
+          const pageList = instance.calculatePages(instance.state.totalPages, instance.state.lastPage);
           pageStatus = instance.calculatePageStatus(pageList, instance.state.lastPage);
 
-          expect(pageStatus.find(p => p.page === props.prePageText)).not.toBeDefined();
+          expect(pageStatus.find((p) => p.page === props.prePageText)).not.toBeDefined();
         });
       });
 
@@ -390,11 +392,10 @@ describe('PageResolver', () => {
           const mockElement = React.createElement(MockComponent, props, null);
           wrapper = shallow(mockElement);
           instance = wrapper.instance();
-          const pageList = instance.calculatePages(
-            instance.state.totalPages, instance.state.lastPage);
+          const pageList = instance.calculatePages(instance.state.totalPages, instance.state.lastPage);
           pageStatus = instance.calculatePageStatus(pageList, instance.state.lastPage);
 
-          expect(pageStatus.find(p => p.page === props.nextPageText)).not.toBeDefined();
+          expect(pageStatus.find((p) => p.page === props.nextPageText)).not.toBeDefined();
         });
       });
     });

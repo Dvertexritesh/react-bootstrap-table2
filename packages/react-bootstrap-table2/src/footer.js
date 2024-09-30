@@ -6,8 +6,10 @@ import RowTemplate from './row/row-template';
 import FooterCell from './footer-cell';
 import _ from './utils';
 
-const Footer = (props) => {
-  const { data, className, columns, selectRow, expandRow } = props;
+function Footer(props) {
+  const {
+    data, className, columns, selectRow, expandRow
+  } = props;
 
   function renderContent() {
     return columns.map((column, i) => {
@@ -39,7 +41,7 @@ const Footer = (props) => {
       />
     </tfoot>
   );
-};
+}
 
 Footer.propTypes = {
   data: PropTypes.array,

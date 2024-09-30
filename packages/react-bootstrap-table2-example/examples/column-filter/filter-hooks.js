@@ -18,7 +18,7 @@ const columns = [{
   dataField: 'price',
   text: 'Product Price',
   filter: textFilter({
-    onFilter: filterVal => console.log(`Filter Value: ${filterVal}`)
+    onFilter: (filterVal) => console.log(`Filter Value: ${filterVal}`)
   })
 }];
 
@@ -54,14 +54,16 @@ function afterFilter(newResult, newFilters) {
   console.log(newFilters);
 }
 
-export default () => (
-  <div>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      filter={ filterFactory({ afterFilter }) }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        filter={ filterFactory({ afterFilter }) }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

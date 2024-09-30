@@ -9,7 +9,7 @@ import withHeaderSelection from './row-selection/selection-header-cell-consumer'
 import withHeaderExpansion from './row-expand/expand-header-cell-consumer';
 import Const from './const';
 
-const Header = (props) => {
+function Header(props) {
   const {
     className,
     columns,
@@ -26,8 +26,12 @@ const Header = (props) => {
     wrapperClasses
   } = props;
 
-  let SelectionHeaderCellComp = () => null;
-  let ExpansionHeaderCellComp = () => null;
+  function SelectionHeaderCellComp() {
+    return null;
+  }
+  function ExpansionHeaderCellComp() {
+    return null;
+  }
 
   if (expandRow.showExpandColumn) {
     ExpansionHeaderCellComp = withHeaderExpansion(ExpandHeaderCell);
@@ -60,7 +64,8 @@ const Header = (props) => {
           currFilters={ currFilters }
           onExternalFilter={ onExternalFilter }
           filterPosition={ filterPosition }
-        />);
+        />
+      );
     })
   ];
 
@@ -87,7 +92,7 @@ const Header = (props) => {
       </tr>
     </thead>
   );
-};
+}
 
 Header.propTypes = {
   columns: PropTypes.array.isRequired,

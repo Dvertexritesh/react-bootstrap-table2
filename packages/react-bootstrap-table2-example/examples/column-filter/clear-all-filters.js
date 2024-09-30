@@ -27,18 +27,18 @@ const columns = [{
     getFilter: (filter) => {
       nameFilter = filter;
     },
-    onFilter: filterVal => console.log(`Filter product name ${filterVal}`)
+    onFilter: (filterVal) => console.log(`Filter product name ${filterVal}`)
   })
 }, {
   dataField: 'quality',
   text: 'Product Quailty',
-  formatter: cell => selectOptions[cell],
+  formatter: (cell) => selectOptions[cell],
   filter: selectFilter({
     options: selectOptions,
     getFilter: (filter) => {
       qualityFilter = filter;
     },
-    onFilter: filterVal => console.log(`Filter quality ${filterVal}`)
+    onFilter: (filterVal) => console.log(`Filter quality ${filterVal}`)
   })
 }, {
   dataField: 'price',
@@ -47,17 +47,17 @@ const columns = [{
     getFilter: (filter) => {
       priceFilter = filter;
     },
-    onFilter: filterVal => console.log(`Filter Price: ${filterVal}`)
+    onFilter: (filterVal) => console.log(`Filter Price: ${filterVal}`)
   })
 }, {
   dataField: 'inStockDate',
   text: 'InStock Date',
-  formatter: cell => cell.toString(),
+  formatter: (cell) => cell.toString(),
   filter: dateFilter({
     getFilter: (filter) => {
       stockDateFilter = filter;
     },
-    onFilter: filterVal => console.log(`Filter date: ${filterVal}`)
+    onFilter: (filterVal) => console.log(`Filter date: ${filterVal}`)
   })
 }];
 
@@ -125,15 +125,17 @@ export default () => (
 );
 `;
 
-export default () => (
-  <div>
-    <button className="btn btn-lg btn-primary" onClick={ handleClick }> Clear all filters </button>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      filter={ filterFactory() }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <button className="btn btn-lg btn-primary" onClick={ handleClick }> Clear all filters </button>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        filter={ filterFactory() }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

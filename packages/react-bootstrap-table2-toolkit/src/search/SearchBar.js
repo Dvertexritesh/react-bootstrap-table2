@@ -6,12 +6,12 @@ import PropTypes from 'prop-types';
 const handleDebounce = (func, wait, immediate) => {
   let timeout;
 
-  return () => {
+  return (...args) => { // Use rest operator to capture arguments
     const later = () => {
       timeout = null;
 
       if (!immediate) {
-        func.apply(this, arguments);
+        func.apply(this, args); // Pass captured arguments
       }
     };
 
@@ -22,10 +22,11 @@ const handleDebounce = (func, wait, immediate) => {
     timeout = setTimeout(later, wait || 0);
 
     if (callNow) {
-      func.appy(this, arguments);
+      func.apply(this, args); // Pass captured arguments
     }
   };
 };
+
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -37,7 +38,7 @@ class SearchBar extends React.Component {
 
   onChangeValue = (e) => {
     this.setState({ value: e.target.value });
-  }
+  };
 
   onKeyup = () => {
     const { delay, onSearch } = this.props;
@@ -45,7 +46,7 @@ class SearchBar extends React.Component {
       onSearch(this.input.value);
     }, delay);
     debounceCallback();
-  }
+  };
 
   UNSAFE_componentWillReceiveProps(nextProps) {
     this.setState({ value: nextProps.searchText });
@@ -69,7 +70,7 @@ class SearchBar extends React.Component {
           { srText }
         </span>
         <input
-          ref={ n => this.input = n }
+          ref={ (n) => this.input = n }
           id={ `search-bar-${tableId}` }
           type="text"
           style={ style }

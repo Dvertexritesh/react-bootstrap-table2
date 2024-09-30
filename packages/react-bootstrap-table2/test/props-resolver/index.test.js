@@ -65,7 +65,7 @@ describe('TableResolver', () => {
       it('should return correct data', () => {
         const result = wrapper.instance().visibleRows();
         expect(result).toHaveLength(data.length - hiddenRows.length);
-        expect(result).toEqual(data.filter(d => !hiddenRows.includes(d.id)));
+        expect(result).toEqual(data.filter((d) => !hiddenRows.includes(d.id)));
       });
     });
   });
@@ -93,9 +93,7 @@ describe('TableResolver', () => {
       });
 
       it('should throw error', () => {
-        expect(() =>
-          wrapper.instance().validateProps()
-        ).toThrow(new Error('Please specify a field as key via keyField'));
+        expect(() => wrapper.instance().validateProps()).toThrow(new Error('Please specify a field as key via keyField'));
       });
     });
 
@@ -108,9 +106,7 @@ describe('TableResolver', () => {
       });
 
       it('should throw error', () => {
-        expect(() =>
-          wrapper.instance().validateProps()
-        ).toThrow(new Error('No visible columns detected'));
+        expect(() => wrapper.instance().validateProps()).toThrow(new Error('No visible columns detected'));
       });
     });
   });

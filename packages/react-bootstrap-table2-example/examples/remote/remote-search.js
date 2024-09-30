@@ -105,16 +105,17 @@ class Container extends React.Component {
 }
 `;
 
-const RemoteFilter = props => (
-  <div>
-    <ToolkitProvider
-      keyField="id"
-      data={ props.data }
-      columns={ columns }
-      search
-    >
-      {
-        toolkitprops => [
+function RemoteFilter(props) {
+  return (
+    <div>
+      <ToolkitProvider
+        keyField="id"
+        data={ props.data }
+        columns={ columns }
+        search
+      >
+        {
+        (toolkitprops) => [
           <SearchBar { ...toolkitprops.searchProps } />,
           <BootstrapTable
             { ...toolkitprops.baseProps }
@@ -123,10 +124,11 @@ const RemoteFilter = props => (
           />
         ]
       }
-    </ToolkitProvider>
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+      </ToolkitProvider>
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}
 
 RemoteFilter.propTypes = {
   data: PropTypes.array.isRequired,
@@ -160,7 +162,7 @@ class Container extends React.Component {
         data: result
       }));
     }, 2000);
-  }
+  };
 
   render() {
     return (

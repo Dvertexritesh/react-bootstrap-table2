@@ -91,26 +91,30 @@ class Container extends React.Component {
 }
 `;
 
-const RemotePagination = ({ loading, data, page, sizePerPage, onTableChange, totalSize }) => (
-  <div>
-    <BootstrapTable
-      remote
-      loading={ loading }
-      keyField="id"
-      data={ data }
-      columns={ columns }
-      pagination={ paginationFactory({ page, sizePerPage, totalSize }) }
-      onTableChange={ onTableChange }
-      overlay={
+function RemotePagination({
+  loading, data, page, sizePerPage, onTableChange, totalSize
+}) {
+  return (
+    <div>
+      <BootstrapTable
+        remote
+        loading={ loading }
+        keyField="id"
+        data={ data }
+        columns={ columns }
+        pagination={ paginationFactory({ page, sizePerPage, totalSize }) }
+        onTableChange={ onTableChange }
+        overlay={
         overlayFactory({
           spinner: true,
-          styles: { overlay: base => ({ ...base, background: 'rgba(255, 0, 0, 0.5)' }) }
+          styles: { overlay: (base) => ({ ...base, background: 'rgba(255, 0, 0, 0.5)' }) }
         })
       }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}
 
 RemotePagination.propTypes = {
   data: PropTypes.array.isRequired,
@@ -143,10 +147,12 @@ class Container extends React.Component {
       }));
     }, 3000);
     this.setState(() => ({ loading: true }));
-  }
+  };
 
   render() {
-    const { data, sizePerPage, page, loading } = this.state;
+    const {
+      data, sizePerPage, page, loading
+    } = this.state;
     return (
       <RemotePagination
         data={ data }

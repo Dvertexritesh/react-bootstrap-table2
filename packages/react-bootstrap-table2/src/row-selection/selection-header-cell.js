@@ -5,17 +5,19 @@ import Const from '../const';
 import { BootstrapContext } from '../contexts/bootstrap';
 import _ from '../utils';
 
-export const CheckBox = ({ className, checked, indeterminate }) => (
-  <input
-    type="checkbox"
-    checked={ checked }
-    className={ className }
-    ref={ (input) => {
-      if (input) input.indeterminate = indeterminate; // eslint-disable-line no-param-reassign
-    } }
-    onChange={ () => {} }
-  />
-);
+export function CheckBox({ className, checked, indeterminate }) {
+  return (
+    <input
+      type="checkbox"
+      checked={ checked }
+      className={ className }
+      ref={ (input) => {
+        if (input) input.indeterminate = indeterminate; // eslint-disable-line no-param-reassign
+      } }
+      onChange={ () => {} }
+    />
+  );
+}
 
 CheckBox.propTypes = {
   checked: PropTypes.bool.isRequired,
@@ -31,7 +33,7 @@ export default class SelectionHeaderCell extends Component {
     hideSelectAll: PropTypes.bool,
     selectionHeaderRenderer: PropTypes.func,
     headerColumnStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.func])
-  }
+  };
 
   constructor() {
     super();
@@ -54,9 +56,8 @@ export default class SelectionHeaderCell extends Component {
 
   handleCheckBoxClick(e) {
     const { onAllRowsSelect, checkedStatus } = this.props;
-    const isUnSelect =
-      checkedStatus === Const.CHECKBOX_STATUS_CHECKED ||
-      checkedStatus === Const.CHECKBOX_STATUS_INDETERMINATE;
+    const isUnSelect = checkedStatus === Const.CHECKBOX_STATUS_CHECKED
+      || checkedStatus === Const.CHECKBOX_STATUS_INDETERMINATE;
 
     onAllRowsSelect(e, isUnSelect);
   }
@@ -87,9 +88,9 @@ export default class SelectionHeaderCell extends Component {
       attrs.onClick = this.handleCheckBoxClick;
     }
 
-    attrs.style = _.isFunction(headerColumnStyle) ?
-      headerColumnStyle(checkedStatus) :
-      headerColumnStyle;
+    attrs.style = _.isFunction(headerColumnStyle)
+      ? headerColumnStyle(checkedStatus)
+      : headerColumnStyle;
 
     return (
       <BootstrapContext.Consumer>

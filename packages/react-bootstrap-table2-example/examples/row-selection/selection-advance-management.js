@@ -62,13 +62,13 @@ export default class AdvSelectionManagment extends React.Component {
       return false; // return false to deny current select action
     }
     return true; // return true or dont return to approve current select action
-  }
+  };
 
   handleOnSelectAll = (isSelect, rows) => {
     if (isSelect) {
-      return rows.filter(r => r.id >= 3).map(r => r.id);
+      return rows.filter((r) => r.id >= 3).map((r) => r.id);
     }
-  }
+  };
 
   render() {
     const selectRow = {

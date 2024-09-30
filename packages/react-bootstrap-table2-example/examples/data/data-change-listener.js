@@ -92,13 +92,16 @@ class WithoutPaginationCase extends React.Component {
 
   handleDataChange = ({ dataSize }) => {
     this.setState({ rowCount: dataSize });
-  }
+  };
 
   render() {
     return (
       <div>
         <h3>Without Pagination Case</h3>
-        <h5>Row Count:<span className="badge">{ this.state.rowCount }</span></h5>
+        <h5>
+          Row Count:
+          <span className="badge">{ this.state.rowCount }</span>
+        </h5>
         <BootstrapTable
           onDataSizeChange={ this.handleDataChange }
           keyField="id"
@@ -121,13 +124,16 @@ class WithPaginationCase extends React.Component {
 
   handleDataChange = ({ dataSize }) => {
     this.setState({ rowCount: dataSize });
-  }
+  };
 
   render() {
     return (
       <div>
         <h3>Without Pagination Case</h3>
-        <h5>Row Count:<span className="badge">{ this.state.rowCount }</span></h5>
+        <h5>
+          Row Count:
+          <span className="badge">{ this.state.rowCount }</span>
+        </h5>
         <BootstrapTable
           onDataSizeChange={ this.handleDataChange }
           keyField="id"
@@ -142,10 +148,11 @@ class WithPaginationCase extends React.Component {
   }
 }
 
-export default () => (
-  <div>
-    <WithoutPaginationCase />
-    <WithPaginationCase />
-  </div>
-);
-
+export default function () {
+  return (
+    <div>
+      <WithoutPaginationCase />
+      <WithPaginationCase />
+    </div>
+  );
+}

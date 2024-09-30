@@ -29,11 +29,13 @@ class TextAreaEditor extends Component {
   }
 
   render() {
-    const { defaultValue, didMount, className, autoSelectText, ...rest } = this.props;
+    const {
+      defaultValue, didMount, className, autoSelectText, ...rest
+    } = this.props;
     const editorClass = cs('form-control editor edit-textarea', className);
     return (
       <textarea
-        ref={ node => this.text = node }
+        ref={ (node) => this.text = node }
         type="textarea"
         className={ editorClass }
         { ...rest }

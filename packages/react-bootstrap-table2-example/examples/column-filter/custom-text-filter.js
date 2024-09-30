@@ -24,7 +24,7 @@ const columns = [{
     },
     className: 'test-classname',
     placeholder: 'Custom PlaceHolder',
-    onClick: e => console.log(e)
+    onClick: (e) => console.log(e)
   })
 }];
 
@@ -56,14 +56,16 @@ const columns = [{
 <BootstrapTable keyField='id' data={ products } columns={ columns } filter={ filterFactory() } />
 `;
 
-export default () => (
-  <div>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      filter={ filterFactory() }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        filter={ filterFactory() }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

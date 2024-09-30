@@ -53,9 +53,11 @@ const selectRow = {
 />
 `;
 
-export default () => (
-  <div>
-    <BootstrapTable keyField="id" data={ products } columns={ columns } selectRow={ selectRow } />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable keyField="id" data={ products } columns={ columns } selectRow={ selectRow } />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

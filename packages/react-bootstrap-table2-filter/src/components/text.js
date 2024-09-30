@@ -108,10 +108,13 @@ class TextFilter extends Component {
         className="filter-label"
         htmlFor={ elmId }
       >
-        <span className="sr-only">Filter by {text}</span>
+        <span className="sr-only">
+          Filter by
+          {text}
+        </span>
         <input
           { ...rest }
-          ref={ n => this.input = n }
+          ref={ (n) => this.input = n }
           type="text"
           id={ elmId }
           className={ `filter text-filter form-control ${className}` }
@@ -148,6 +151,5 @@ TextFilter.defaultProps = {
   caseSensitive: false,
   id: null
 };
-
 
 export default TextFilter;

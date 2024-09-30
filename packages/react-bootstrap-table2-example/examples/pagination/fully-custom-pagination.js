@@ -111,21 +111,21 @@ export default class FullyCustomPagination extends React.Component {
     onPageChange
   }) => () => {
     onPageChange(page + 1);
-  }
+  };
 
   handlePrevPage = ({
     page,
     onPageChange
   }) => () => {
     onPageChange(page - 1);
-  }
+  };
 
   handleSizePerPage = ({
     page,
     onSizePerPageChange
   }, newSizePerPage) => {
     onSizePerPageChange(newSizePerPage, page);
-  }
+  };
 
   render() {
     return (
@@ -140,8 +140,14 @@ export default class FullyCustomPagination extends React.Component {
             }) => (
               <div>
                 <div>
-                  <p>Current Page: { paginationProps.page }</p>
-                  <p>Current SizePerPage: { paginationProps.sizePerPage }</p>
+                  <p>
+                    Current Page:
+                    { paginationProps.page }
+                  </p>
+                  <p>
+                    Current SizePerPage:
+                    { paginationProps.sizePerPage }
+                  </p>
                 </div>
                 <div className="btn-group" role="group">
                   <button className="btn btn-primary" onClick={ this.handleNextPage(paginationProps) }>Next Page</button>

@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 import { LIKE, EQ } from '../comparison';
 import { FILTER_TYPE } from '../const';
 
-
 function optionsEquals(currOpts, prevOpts) {
   const keys = Object.keys(currOpts);
   for (let i = 0; i < keys.length; i += 1) {
@@ -20,7 +19,7 @@ function optionsEquals(currOpts, prevOpts) {
 
 const getSelections = (container) => {
   if (container.selectedOptions) {
-    return Array.from(container.selectedOptions).map(item => item.value);
+    return Array.from(container.selectedOptions).map((item) => item.value);
   }
   const selections = [];
   const totalLen = container.options.length;
@@ -36,7 +35,7 @@ class MultiSelectFilter extends Component {
     super(props);
     this.filter = this.filter.bind(this);
     this.applyFilter = this.applyFilter.bind(this);
-    const isSelected = props.defaultValue.map(item => props.options[item]).length > 0;
+    const isSelected = props.defaultValue.map((item) => props.options[item]).length > 0;
     this.state = { isSelected };
   }
 
@@ -79,15 +78,15 @@ class MultiSelectFilter extends Component {
 
   getOptions() {
     const optionTags = [];
-    const { options, placeholder, column, withoutEmptyOption } = this.props;
+    const {
+      options, placeholder, column, withoutEmptyOption
+    } = this.props;
     if (!withoutEmptyOption) {
       optionTags.push((
         <option key="-1" value="">{ placeholder || `Select ${column.text}...` }</option>
       ));
     }
-    Object.keys(options).forEach(key =>
-      optionTags.push(<option key={ key } value={ key }>{ options[key] }</option>)
-    );
+    Object.keys(options).forEach((key) => optionTags.push(<option key={ key } value={ key }>{ options[key] }</option>));
     return optionTags;
   }
 
@@ -127,8 +126,7 @@ class MultiSelectFilter extends Component {
       ...rest
     } = this.props;
 
-    const selectClass =
-      `filter select-filter form-control ${className} ${this.state.isSelected ? '' : 'placeholder-selected'}`;
+    const selectClass = `filter select-filter form-control ${className} ${this.state.isSelected ? '' : 'placeholder-selected'}`;
     const elmId = `multiselect-filter-column-${column.dataField}${id ? `-${id}` : ''}`;
 
     return (
@@ -136,16 +134,19 @@ class MultiSelectFilter extends Component {
         className="filter-label"
         htmlFor={ elmId }
       >
-        <span className="sr-only">Filter by {column.text}</span>
+        <span className="sr-only">
+          Filter by
+          {column.text}
+        </span>
         <select
           { ...rest }
-          ref={ n => this.selectInput = n }
+          ref={ (n) => this.selectInput = n }
           id={ elmId }
           style={ style }
           multiple
           className={ selectClass }
           onChange={ this.filter }
-          onClick={ e => e.stopPropagation() }
+          onClick={ (e) => e.stopPropagation() }
           defaultValue={ this.getDefaultValue() }
         >
           { this.getOptions() }

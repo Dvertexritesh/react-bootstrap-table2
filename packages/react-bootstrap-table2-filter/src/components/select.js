@@ -12,8 +12,8 @@ function optionsEquals(currOpts, prevOpts) {
     if (currOpts.length === prevOpts.length) {
       for (let i = 0; i < currOpts.length; i += 1) {
         if (
-          currOpts[i].value !== prevOpts[i].value ||
-          currOpts[i].label !== prevOpts[i].label
+          currOpts[i].value !== prevOpts[i].value
+          || currOpts[i].label !== prevOpts[i].label
         ) {
           return false;
         }
@@ -53,7 +53,7 @@ class SelectFilter extends Component {
   componentDidMount() {
     const { column, onFilter, getFilter } = this.props;
 
-    const value = this.selectInput.value;
+    const { value } = this.selectInput;
     if (value && value !== '') {
       onFilter(column, FILTER_TYPE.SELECT, true)(value);
     }
@@ -84,7 +84,7 @@ class SelectFilter extends Component {
       needFilter = true;
     }
     if (needFilter) {
-      const value = this.selectInput.value;
+      const { value } = this.selectInput;
       if (value) {
         onFilter(column, FILTER_TYPE.SELECT)(value);
       }
@@ -132,12 +132,9 @@ class SelectFilter extends Component {
       ));
     }
     if (Array.isArray(options)) {
-      options.forEach(({ value, label }) =>
-        optionTags.push(<option key={ value } value={ value }>{ label }</option>));
+      options.forEach(({ value, label }) => optionTags.push(<option key={ value } value={ value }>{ label }</option>));
     } else {
-      Object.keys(options).forEach(key =>
-        optionTags.push(<option key={ key } value={ key }>{ options[key] }</option>)
-      );
+      Object.keys(options).forEach((key) => optionTags.push(<option key={ key } value={ key }>{ options[key] }</option>));
     }
     return optionTags;
   }
@@ -159,8 +156,7 @@ class SelectFilter extends Component {
       ...rest
     } = this.props;
 
-    const selectClass =
-      `filter select-filter form-control ${className} ${this.state.isSelected ? '' : 'placeholder-selected'}`;
+    const selectClass = `filter select-filter form-control ${className} ${this.state.isSelected ? '' : 'placeholder-selected'}`;
     const elmId = `select-filter-column-${column.dataField}${id ? `-${id}` : ''}`;
 
     return (
@@ -168,15 +164,18 @@ class SelectFilter extends Component {
         className="filter-label"
         htmlFor={ elmId }
       >
-        <span className="sr-only">Filter by { column.text }</span>
+        <span className="sr-only">
+          Filter by
+          { column.text }
+        </span>
         <select
           { ...rest }
-          ref={ n => this.selectInput = n }
+          ref={ (n) => this.selectInput = n }
           id={ elmId }
           style={ style }
           className={ selectClass }
           onChange={ this.filter }
-          onClick={ e => e.stopPropagation() }
+          onClick={ (e) => e.stopPropagation() }
           defaultValue={ this.getDefaultValue() || '' }
         >
           { this.renderOptions() }

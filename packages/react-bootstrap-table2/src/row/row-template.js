@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import Const from '../const';
 
-const RowTemplate = (props) => {
+function RowTemplate(props) {
   const {
     renderContent,
     selectRow,
@@ -36,7 +36,7 @@ const RowTemplate = (props) => {
   }
 
   return <tr { ...rest }>{ childrens }</tr>;
-};
+}
 
 RowTemplate.propTypes = {
   renderContent: PropTypes.func.isRequired,

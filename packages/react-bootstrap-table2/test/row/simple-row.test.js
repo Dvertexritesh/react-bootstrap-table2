@@ -167,7 +167,8 @@ describe('SimpleRow', () => {
           columns={ defaultColumns }
           row={ row }
           style={ customStyle }
-        />);
+        />
+      );
     });
 
     it('should render component with style successfully', () => {
@@ -185,7 +186,8 @@ describe('SimpleRow', () => {
           columns={ defaultColumns }
           row={ row }
           className={ className }
-        />);
+        />
+      );
     });
 
     it('should render component with className successfully', () => {
@@ -204,7 +206,8 @@ describe('SimpleRow', () => {
           columns={ defaultColumns }
           row={ row }
           attrs={ attrs }
-        />);
+        />
+      );
     });
 
     it('should render component with correct attributes', () => {

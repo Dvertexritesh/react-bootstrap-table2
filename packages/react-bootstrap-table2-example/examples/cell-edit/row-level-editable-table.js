@@ -44,19 +44,21 @@ const columns = [{
   }) }
 />
 `;
-export default () => (
-  <div>
-    <h3>Product ID: 0, 3 is non editable</h3>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      cellEdit={ cellEditFactory({
-        mode: 'click',
-        blurToSave: true,
-        nonEditableRows: () => [0, 3]
-      }) }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <h3>Product ID: 0, 3 is non editable</h3>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        cellEdit={ cellEditFactory({
+          mode: 'click',
+          blurToSave: true,
+          nonEditableRows: () => [0, 3]
+        }) }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

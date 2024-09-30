@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Caption = (props) => {
+function Caption(props) {
   if (!props.children) return null;
 
   const caption = props.bootstrap4 ? (
@@ -12,7 +12,7 @@ const Caption = (props) => {
   );
 
   return caption;
-};
+}
 
 Caption.propTypes = {
   children: PropTypes.oneOfType([

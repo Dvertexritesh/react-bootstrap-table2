@@ -4,14 +4,16 @@ import { shallow } from 'enzyme';
 
 import paginationHandler from '../src/pagination-handler';
 
-const MockComponent = () => null;
+function MockComponent() {
+  return null;
+}
 const MockComponentWithPaginationHandler = paginationHandler(MockComponent);
 
 describe('paginationHandler', () => {
   let wrapper;
   let instance;
 
-  const createMockProps = props => ({
+  const createMockProps = (props) => ({
     dataSize: 100,
     sizePerPageList: [10, 20, 30, 50],
     currPage: 1,
@@ -43,7 +45,8 @@ describe('paginationHandler', () => {
       expect(instance.state).toBeDefined();
       expect(instance.state.totalPages).toEqual(instance.calculateTotalPage());
       expect(instance.state.lastPage).toEqual(
-        instance.calculateLastPage(instance.state.totalPages));
+        instance.calculateLastPage(instance.state.totalPages)
+      );
     });
 
     it('should rendering PaginationList component successfully', () => {
@@ -143,7 +146,8 @@ describe('paginationHandler', () => {
       describe('and new current page is still in the new lagination list', () => {
         beforeEach(() => {
           wrapper = shallow(
-            <MockComponentWithPaginationHandler { ...createMockProps({ currPage: 10 }) } />);
+            <MockComponentWithPaginationHandler { ...createMockProps({ currPage: 10 }) } />
+          );
           instance = wrapper.instance();
         });
 
@@ -166,14 +170,16 @@ describe('paginationHandler', () => {
       it('should setting correct state.totalPages', () => {
         instance.UNSAFE_componentWillReceiveProps(nextProps);
         expect(instance.state.totalPages).toEqual(
-          instance.calculateTotalPage(nextProps.currSizePerPage));
+          instance.calculateTotalPage(nextProps.currSizePerPage)
+        );
       });
 
       it('should setting correct state.lastPage', () => {
         instance.UNSAFE_componentWillReceiveProps(nextProps);
         const totalPages = instance.calculateTotalPage(nextProps.currSizePerPage);
         expect(instance.state.lastPage).toEqual(
-          instance.calculateLastPage(totalPages));
+          instance.calculateLastPage(totalPages)
+        );
       });
     });
 
@@ -188,15 +194,16 @@ describe('paginationHandler', () => {
       it('should setting correct state.totalPages', () => {
         instance.UNSAFE_componentWillReceiveProps(nextProps);
         expect(instance.state.totalPages).toEqual(
-          instance.calculateTotalPage(nextProps.currSizePerPage, nextProps.dataSize));
+          instance.calculateTotalPage(nextProps.currSizePerPage, nextProps.dataSize)
+        );
       });
 
       it('should setting correct state.lastPage', () => {
         instance.UNSAFE_componentWillReceiveProps(nextProps);
-        const totalPages = instance.calculateTotalPage(
-          nextProps.currSizePerPage, nextProps.dataSize);
+        const totalPages = instance.calculateTotalPage(nextProps.currSizePerPage, nextProps.dataSize);
         expect(instance.state.lastPage).toEqual(
-          instance.calculateLastPage(totalPages));
+          instance.calculateLastPage(totalPages)
+        );
       });
     });
   });

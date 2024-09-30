@@ -72,7 +72,8 @@ describe('Header', () => {
           columns={ columns }
           sortField={ sortField }
           sortOrder={ Const.SORT_ASC }
-        />);
+        />
+      );
     });
 
     it('The HeaderCell should receive correct sorting props', () => {

@@ -1,4 +1,3 @@
-
 import { getByCurrPage, alignPage } from '../src/page';
 
 describe('Page Functions', () => {
@@ -29,7 +28,7 @@ describe('Page Functions', () => {
         const rows = getByCurrPage(data, page, sizePerPage, pageStartIndex);
         expect(rows).toBeDefined();
         expect(Array.isArray(rows)).toBeTruthy();
-        expect(rows.every(row => !!row)).toBeTruthy();
+        expect(rows.every((row) => !!row)).toBeTruthy();
       });
     });
 

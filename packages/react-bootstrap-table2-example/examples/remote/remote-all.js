@@ -187,24 +187,33 @@ const cellEditProps = {
   mode: 'click'
 };
 
-const RemoteAll = ({ data, page, sizePerPage, onTableChange, totalSize }) => (
-  <div>
-    <h3>When <code>remote.pagination</code> is enabled, the filtering,
-      sorting and searching will also change to remote mode automatically</h3>
-    <BootstrapTable
-      remote
-      keyField="id"
-      data={ data }
-      columns={ columns }
-      defaultSorted={ defaultSorted }
-      filter={ filterFactory() }
-      pagination={ paginationFactory({ page, sizePerPage, totalSize }) }
-      onTableChange={ onTableChange }
-      cellEdit={ cellEditFactory(cellEditProps) }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+function RemoteAll({
+  data, page, sizePerPage, onTableChange, totalSize
+}) {
+  return (
+    <div>
+      <h3>
+        When
+        <code>remote.pagination</code>
+        {' '}
+        is enabled, the filtering,
+        sorting and searching will also change to remote mode automatically
+      </h3>
+      <BootstrapTable
+        remote
+        keyField="id"
+        data={ data }
+        columns={ columns }
+        defaultSorted={ defaultSorted }
+        filter={ filterFactory() }
+        pagination={ paginationFactory({ page, sizePerPage, totalSize }) }
+        onTableChange={ onTableChange }
+        cellEdit={ cellEditFactory(cellEditProps) }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}
 
 RemoteAll.propTypes = {
   data: PropTypes.array.isRequired,
@@ -226,7 +235,9 @@ class Container extends React.Component {
     this.handleTableChange = this.handleTableChange.bind(this);
   }
 
-  handleTableChange = (type, { page, sizePerPage, filters, sortField, sortOrder, cellEdit }) => {
+  handleTableChange = (type, {
+    page, sizePerPage, filters, sortField, sortOrder, cellEdit
+  }) => {
     const currentIndex = (page - 1) * sizePerPage;
     setTimeout(() => {
       // Handle cell editing
@@ -264,7 +275,7 @@ class Container extends React.Component {
         result = result.sort((a, b) => {
           if (a[sortField] > b[sortField]) {
             return 1;
-          } else if (b[sortField] > a[sortField]) {
+          } if (b[sortField] > a[sortField]) {
             return -1;
           }
           return 0;
@@ -273,7 +284,7 @@ class Container extends React.Component {
         result = result.sort((a, b) => {
           if (a[sortField] > b[sortField]) {
             return -1;
-          } else if (b[sortField] > a[sortField]) {
+          } if (b[sortField] > a[sortField]) {
             return 1;
           }
           return 0;
@@ -286,7 +297,7 @@ class Container extends React.Component {
         sizePerPage
       }));
     }, 2000);
-  }
+  };
 
   render() {
     const { data, sizePerPage, page } = this.state;

@@ -22,8 +22,8 @@ export default (_, onStartEdit) => {
         content,
         props.row,
         props.rowIndex,
-        props.columnIndex)
-      ;
+        props.columnIndex
+      );
     }
 
     return (
@@ -36,9 +36,11 @@ export default (_, onStartEdit) => {
     );
   };
 
-  return props => (
-    <Consumer>
-      { cellEdit => renderWithEditingCell(props, cellEdit) }
-    </Consumer>
-  );
+  return function (props) {
+    return (
+      <Consumer>
+        { (cellEdit) => renderWithEditingCell(props, cellEdit) }
+      </Consumer>
+    );
+  };
 };

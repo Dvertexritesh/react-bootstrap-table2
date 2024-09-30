@@ -54,11 +54,11 @@ const selectRow2 = {
       return {
         backgroundColor: 'yellow'
       };
-    } else if (status === 'indeterminate') {
+    } if (status === 'indeterminate') {
       return {
         backgroundColor: 'pink'
       };
-    } else if (status === 'unchecked') {
+    } if (status === 'unchecked') {
       return {
         backgroundColor: 'grey'
       };
@@ -101,11 +101,13 @@ const selectRow = {
 />
 `;
 
-export default () => (
-  <div>
-    <BootstrapTable keyField="id" data={ products } columns={ columns } selectRow={ selectRow1 } />
-    <Code>{ sourceCode1 }</Code>
-    <BootstrapTable keyField="id" data={ products } columns={ columns } selectRow={ selectRow2 } />
-    <Code>{ sourceCode2 }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable keyField="id" data={ products } columns={ columns } selectRow={ selectRow1 } />
+      <Code>{ sourceCode1 }</Code>
+      <BootstrapTable keyField="id" data={ products } columns={ columns } selectRow={ selectRow2 } />
+      <Code>{ sourceCode2 }</Code>
+    </div>
+  );
+}

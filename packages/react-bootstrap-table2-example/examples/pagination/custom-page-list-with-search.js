@@ -92,11 +92,11 @@ class Table extends React.Component {
 `;
 
 export default class Table extends React.Component {
-  state = { products }
+  state = { products };
 
   loadData = () => {
     this.setState({ products: productsGenerator(17) });
-  }
+  };
 
   render() {
     const options = {
@@ -125,7 +125,7 @@ export default class Table extends React.Component {
           search
         >
           {
-            toolkitprops => (
+            (toolkitprops) => (
               <div>
                 <SearchBar { ...toolkitprops.searchProps } />
                 <BootstrapTable

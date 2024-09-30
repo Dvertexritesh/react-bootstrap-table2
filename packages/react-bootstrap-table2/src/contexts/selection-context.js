@@ -14,7 +14,7 @@ class SelectionProvider extends React.Component {
     children: PropTypes.node.isRequired,
     data: PropTypes.array.isRequired,
     keyField: PropTypes.string.isRequired
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -50,12 +50,12 @@ class SelectionProvider extends React.Component {
       } else if (checked) { // when select mode is checkbox
         currSelected.push(rowKey);
       } else {
-        currSelected = currSelected.filter(value => value !== rowKey);
+        currSelected = currSelected.filter((value) => value !== rowKey);
       }
     }
     this.selected = currSelected;
     this.forceUpdate();
-  }
+  };
 
   handleAllRowsSelect = (e, isUnSelect) => {
     const {
@@ -73,7 +73,7 @@ class SelectionProvider extends React.Component {
     if (!isUnSelect) {
       currSelected = selected.concat(dataOperator.selectableKeys(data, keyField, nonSelectable));
     } else {
-      currSelected = selected.filter(s => typeof data.find(d => _.get(d, keyField) === s) === 'undefined');
+      currSelected = selected.filter((s) => typeof data.find((d) => _.get(d, keyField) === s) === 'undefined');
     }
 
     let result;
@@ -93,7 +93,7 @@ class SelectionProvider extends React.Component {
     }
     this.selected = currSelected;
     this.forceUpdate();
-  }
+  };
 
   render() {
     const {

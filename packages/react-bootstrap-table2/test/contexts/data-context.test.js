@@ -24,7 +24,7 @@ describe('DataContext', () => {
     text: 'Name'
   }];
 
-  const mockBase = jest.fn((props => (
+  const mockBase = jest.fn(((props) => (
     <BootstrapTable
       data={ data }
       columns={ columns }
@@ -42,7 +42,7 @@ describe('DataContext', () => {
       >
         <DataContext.Consumer>
           {
-            dataProps => mockBase(dataProps)
+            (dataProps) => mockBase(dataProps)
           }
         </DataContext.Consumer>
       </DataContext.Provider>

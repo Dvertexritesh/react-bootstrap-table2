@@ -2,7 +2,9 @@ import _ from 'react-bootstrap-table-next/src/utils';
 
 import { filters } from '../src/filter';
 import { FILTER_TYPE } from '../src/const';
-import { LIKE, EQ, GT, GE, LT, LE, NE } from '../src/comparison';
+import {
+  LIKE, EQ, GT, GE, LT, LE, NE
+} from '../src/comparison';
 
 const data = [];
 for (let i = 0; i < 20; i += 1) {

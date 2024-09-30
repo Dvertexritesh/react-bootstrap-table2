@@ -18,7 +18,7 @@ const columns = [{
 }, {
   dataField: 'price',
   text: 'Product Price',
-  formatter: cell => `USD ${cell}`
+  formatter: (cell) => `USD ${cell}`
 }];
 
 const sourceCode = `\
@@ -59,16 +59,17 @@ const columns = [{
 </ToolkitProvider>
 `;
 
-export default () => (
-  <div>
-    <ToolkitProvider
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      search={ { searchFormatted: true } }
-    >
-      {
-        props => (
+export default function () {
+  return (
+    <div>
+      <ToolkitProvider
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        search={ { searchFormatted: true } }
+      >
+        {
+        (props) => (
           <div>
             <h3>Try to Search USD at below input field:</h3>
             <SearchBar { ...props.searchProps } />
@@ -79,7 +80,8 @@ export default () => (
           </div>
         )
       }
-    </ToolkitProvider>
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+      </ToolkitProvider>
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from './utils';
 
-const FiltersCell = (props) => {
+function FiltersCell(props) {
   const {
     index, column, onExternalFilter,
     currFilters, onFilter
@@ -31,7 +31,7 @@ const FiltersCell = (props) => {
     );
   }
   return React.createElement('th', cellAttrs, filterElm);
-};
+}
 
 FiltersCell.propTypes = {
   index: PropTypes.number.isRequired,

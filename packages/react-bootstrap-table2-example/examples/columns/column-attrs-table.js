@@ -39,10 +39,12 @@ const columns = [{
 <BootstrapTable keyField='id' data={ products } columns={ columns } />
 `;
 
-export default () => (
-  <div>
-    <h3>Try to hover on Product ID Cell</h3>
-    <BootstrapTable keyField="id" data={ products } columns={ columns } />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <h3>Try to hover on Product ID Cell</h3>
+      <BootstrapTable keyField="id" data={ products } columns={ columns } />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

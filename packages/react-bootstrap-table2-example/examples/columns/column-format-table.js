@@ -9,12 +9,24 @@ const products = withOnSale(productsGenerator());
 function priceFormatter(cell, row) {
   if (row.onSale) {
     return (
-      <span><strong style={ { color: 'red' } }>$ { cell } NTD(Sales!!)</strong></span>
+      <span>
+        <strong style={ { color: 'red' } }>
+          $
+          { cell }
+          {' '}
+          NTD(Sales!!)
+        </strong>
+      </span>
     );
   }
 
   return (
-    <span>$ { cell } NTD</span>
+    <span>
+      $
+      { cell }
+      {' '}
+      NTD
+    </span>
   );
 }
 
@@ -62,13 +74,15 @@ const columns = [
 />
 `;
 
-export default () => (
-  <div>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

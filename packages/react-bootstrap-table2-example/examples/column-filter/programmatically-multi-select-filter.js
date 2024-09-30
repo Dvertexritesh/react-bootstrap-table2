@@ -23,7 +23,7 @@ const columns = [{
 }, {
   dataField: 'quality',
   text: 'Product Quality',
-  formatter: cell => selectOptions[cell],
+  formatter: (cell) => selectOptions[cell],
   filter: multiSelectFilter({
     options: selectOptions,
     getFilter: (filter) => {
@@ -80,16 +80,18 @@ export default () => (
 );
 `;
 
-export default () => (
-  <div>
-    <button className="btn btn-lg btn-primary" onClick={ handleClick }>{' filter columns by option "good" and "unknow" '}</button>
+export default function () {
+  return (
+    <div>
+      <button className="btn btn-lg btn-primary" onClick={ handleClick }>{' filter columns by option "good" and "unknow" '}</button>
 
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      filter={ filterFactory() }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        filter={ filterFactory() }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

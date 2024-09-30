@@ -2,8 +2,9 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import standaloneAdapter from '../src/standalone-adapter';
 
-
-const MockStandalone = () => null;
+function MockStandalone() {
+  return null;
+}
 
 const MockStandaloneWithAdapter = standaloneAdapter(MockStandalone);
 describe('standaloneAdapter', () => {

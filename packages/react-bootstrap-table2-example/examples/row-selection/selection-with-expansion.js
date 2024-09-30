@@ -25,7 +25,7 @@ const selectRow = {
 
 const expandRow = {
   showExpandColumn: true,
-  renderer: row => (
+  renderer: (row) => (
     <div>
       <p>{ `This Expand row is belong to rowKey ${row.id}` }</p>
       <p>You can render anything here, also you can add additional data on every row object</p>
@@ -74,15 +74,17 @@ const expandRow = {
 />
 `;
 
-export default () => (
-  <div>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      selectRow={ selectRow }
-      expandRow={ expandRow }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        selectRow={ selectRow }
+        expandRow={ expandRow }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

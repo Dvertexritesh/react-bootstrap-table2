@@ -62,7 +62,7 @@ class DateFilter extends Component {
   }
 
   onChangeComparator(e) {
-    const value = this.inputDate.value;
+    const { value } = this.inputDate;
     const comparator = e.target.value;
     this.applyFilter(value, comparator);
   }
@@ -144,7 +144,7 @@ class DateFilter extends Component {
 
     return (
       <div
-        onClick={ e => e.stopPropagation() }
+        onClick={ (e) => e.stopPropagation() }
         className={ `filter date-filter ${className}` }
         style={ style }
       >
@@ -154,7 +154,7 @@ class DateFilter extends Component {
         >
           <span className="sr-only">Filter comparator</span>
           <select
-            ref={ n => this.dateFilterComparator = n }
+            ref={ (n) => this.dateFilterComparator = n }
             id={ comparatorElmId }
             style={ comparatorStyle }
             className={ `date-filter-comparator form-control ${comparatorClassName}` }
@@ -165,9 +165,12 @@ class DateFilter extends Component {
           </select>
         </label>
         <label htmlFor={ inputElmId }>
-          <span className="sr-only">Enter ${ text }</span>
+          <span className="sr-only">
+            Enter $
+            { text }
+          </span>
           <input
-            ref={ n => this.inputDate = n }
+            ref={ (n) => this.inputDate = n }
             id={ inputElmId }
             className={ `filter date-filter-input form-control ${dateClassName}` }
             style={ dateStyle }
@@ -240,6 +243,5 @@ DateFilter.defaultProps = {
   dateClassName: '',
   id: null
 };
-
 
 export default DateFilter;

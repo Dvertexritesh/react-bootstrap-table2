@@ -51,7 +51,7 @@ export default class Test extends React.Component {
         data: newProducts
       };
     });
-  }
+  };
 
   render() {
     return (

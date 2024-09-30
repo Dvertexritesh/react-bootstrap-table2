@@ -6,7 +6,7 @@ import FiltersCell from './filters-cell';
 import Const from './const';
 import RowTemplate from './row/row-template';
 
-const Filters = (props) => {
+function Filters(props) {
   const {
     columns,
     onFilter,
@@ -59,7 +59,7 @@ const Filters = (props) => {
       />
     </tbody>
   );
-};
+}
 
 Filters.propTypes = {
   columns: PropTypes.array.isRequired,

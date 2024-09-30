@@ -26,7 +26,7 @@ export default (
         sortFunc: PropTypes.func
       }),
       defaultSortDirection: PropTypes.oneOf([Const.SORT_DESC, Const.SORT_ASC])
-    }
+    };
 
     constructor(props) {
       super(props);
@@ -56,7 +56,7 @@ export default (
       if (sort && sort.dataField && sort.order) {
         this.setState({
           sortOrder: sort.order,
-          sortColumn: columns.find(col => col.dataField === sort.dataField)
+          sortColumn: columns.find((col) => col.dataField === sort.dataField)
         });
       }
     }
@@ -64,7 +64,7 @@ export default (
     initSort(sortField, sortOrder) {
       let sortColumn;
       const { columns } = this.props;
-      const sortColumns = columns.filter(col => col.dataField === sortField);
+      const sortColumns = columns.filter((col) => col.dataField === sortField);
       if (sortColumns.length > 0) {
         sortColumn = sortColumns[0];
 
@@ -89,7 +89,7 @@ export default (
         sortOrder,
         sortColumn: column
       }));
-    }
+    };
 
     render() {
       let { data } = this.props;

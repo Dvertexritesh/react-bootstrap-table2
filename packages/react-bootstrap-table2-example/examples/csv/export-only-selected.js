@@ -91,17 +91,18 @@ const selectRow = {
   clickToSelect: true
 };
 
-export default () => (
-  <div>
-    <h3>Export all selected row</h3>
-    <ToolkitProvider
-      keyField="id"
-      data={ products1 }
-      columns={ columns }
-      exportCSV={ { onlyExportSelection: true, exportAll: true } }
-    >
-      {
-        props => (
+export default function () {
+  return (
+    <div>
+      <h3>Export all selected row</h3>
+      <ToolkitProvider
+        keyField="id"
+        data={ products1 }
+        columns={ columns }
+        exportCSV={ { onlyExportSelection: true, exportAll: true } }
+      >
+        {
+        (props) => (
           <div>
             <ExportCSVButton { ...props.csvProps }>Export CSV!!</ExportCSVButton>
             <hr />
@@ -113,16 +114,16 @@ export default () => (
           </div>
         )
       }
-    </ToolkitProvider>
-    <h3>Export all selected rows in currect visible rows</h3>
-    <ToolkitProvider
-      keyField="id"
-      data={ products2 }
-      columns={ columns }
-      exportCSV={ { onlyExportSelection: true, exportAll: false } }
-    >
-      {
-        props => (
+      </ToolkitProvider>
+      <h3>Export all selected rows in currect visible rows</h3>
+      <ToolkitProvider
+        keyField="id"
+        data={ products2 }
+        columns={ columns }
+        exportCSV={ { onlyExportSelection: true, exportAll: false } }
+      >
+        {
+        (props) => (
           <div>
             <ExportCSVButton { ...props.csvProps }>Export CSV!!</ExportCSVButton>
             <hr />
@@ -134,7 +135,8 @@ export default () => (
           </div>
         )
       }
-    </ToolkitProvider>
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+      </ToolkitProvider>
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

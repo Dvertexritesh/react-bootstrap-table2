@@ -15,7 +15,7 @@ const columns = [{
 }, {
   dataField: 'inStockDate',
   text: 'InStock Date',
-  formatter: cell => cell.toString(),
+  formatter: (cell) => cell.toString(),
   filter: dateFilter({
     delay: 400,
     placeholder: 'custom placeholder',
@@ -65,14 +65,16 @@ const columns = [{
 />
 `;
 
-export default () => (
-  <div>
-    <BootstrapTable
-      keyField="id"
-      data={ stocks }
-      columns={ columns }
-      filter={ filterFactory() }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable
+        keyField="id"
+        data={ stocks }
+        columns={ columns }
+        filter={ filterFactory() }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

@@ -12,23 +12,27 @@ class PriceFilter extends React.Component {
   static propTypes = {
     column: PropTypes.object.isRequired,
     onFilter: PropTypes.func.isRequired
-  }
+  };
+
   constructor(props) {
     super(props);
     this.filter = this.filter.bind(this);
     this.getValue = this.getValue.bind(this);
   }
+
   getValue() {
     return this.input.value;
   }
+
   filter() {
     this.props.onFilter(this.getValue());
   }
+
   render() {
     return [
       <input
         key="input"
-        ref={ node => this.input = node }
+        ref={ (node) => this.input = node }
         type="text"
         placeholder="Input price"
       />,
@@ -54,8 +58,7 @@ const columns = [{
   dataField: 'price',
   text: 'Product Price',
   filter: customFilter(),
-  filterRenderer: (onFilter, column) =>
-    <PriceFilter onFilter={ onFilter } column={ column } />
+  filterRenderer: (onFilter, column) => <PriceFilter onFilter={ onFilter } column={ column } />
 }];
 
 const sourceCode = `\
@@ -115,14 +118,16 @@ const columns = [{
 <BootstrapTable keyField='id' data={ products } columns={ columns } filter={ filterFactory() } />
 `;
 
-export default () => (
-  <div>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      filter={ filterFactory() }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        filter={ filterFactory() }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

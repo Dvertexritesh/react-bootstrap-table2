@@ -24,7 +24,6 @@ const columns = [{
   text: 'Product Price'
 }];
 
-
 const sourceCode = `\
 import BootstrapTable from 'react-bootstrap-table-next';
 
@@ -48,9 +47,11 @@ const columns = [{
 <BootstrapTable keyField="id" data={ products } columns={ columns } />
 `;
 
-export default () => (
-  <div>
-    <BootstrapTable keyField="id" data={ products } columns={ columns } />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable keyField="id" data={ products } columns={ columns } />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

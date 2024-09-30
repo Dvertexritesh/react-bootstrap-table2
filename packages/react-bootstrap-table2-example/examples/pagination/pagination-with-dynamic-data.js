@@ -95,16 +95,18 @@ export default class BookList extends React.Component {
 
   deleteBookWithId = () => {
     const lastOneId = this.state.books.length;
-    const updatedBooks = this.state.books.filter(m => m.id !== lastOneId.toString());
+    const updatedBooks = this.state.books.filter((m) => m.id !== lastOneId.toString());
     this.setState({ books: updatedBooks });
   };
 
   addBook = () => {
     const lastOneId = this.state.books.length + 1;
-    this.setState({ books: [...this.state.books, {
-      id: `${lastOneId}`, name: `Book ${lastOneId}`
-    }] });
-  }
+    this.setState({
+      books: [...this.state.books, {
+        id: `${lastOneId}`, name: `Book ${lastOneId}`
+      }]
+    });
+  };
 
   render() {
     const options = {
@@ -117,7 +119,7 @@ export default class BookList extends React.Component {
       {
         dataField: 'id',
         text: 'Product ID',
-        Cell: row => (
+        Cell: (row) => (
           <div>
             <span title={ row.value }>{ row.value }</span>
           </div>
@@ -130,7 +132,7 @@ export default class BookList extends React.Component {
     ];
 
     return (
-      <React.Fragment>
+      <>
         <BootstrapTable
           keyField="id"
           data={ this.state.books }
@@ -144,7 +146,7 @@ export default class BookList extends React.Component {
           Add a book to the end
         </button>
         <Code>{ sourceCode }</Code>
-      </React.Fragment>
+      </>
     );
   }
 }

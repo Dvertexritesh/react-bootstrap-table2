@@ -98,10 +98,10 @@ export default class RowExpandManagment extends React.Component {
       }));
     } else {
       this.setState(() => ({
-        expanded: this.state.expanded.filter(x => x !== 2)
+        expanded: this.state.expanded.filter((x) => x !== 2)
       }));
     }
-  }
+  };
 
   handleOnExpand = (row, isExpand, rowIndex, e) => {
     if (isExpand) {
@@ -110,14 +110,14 @@ export default class RowExpandManagment extends React.Component {
       }));
     } else {
       this.setState(() => ({
-        expanded: this.state.expanded.filter(x => x !== row.id)
+        expanded: this.state.expanded.filter((x) => x !== row.id)
       }));
     }
-  }
+  };
 
   render() {
     const expandRow = {
-      renderer: row => (
+      renderer: (row) => (
         <div>
           <p>{ `This Expand row is belong to rowKey ${row.id}` }</p>
           <p>You can render anything here, also you can add additional data on every row object</p>

@@ -118,39 +118,39 @@ class ExposedFunctionTable extends React.Component {
 export default class ExposedFunctionTable extends React.Component {
   handleGetCurrentData = () => {
     console.log(this.node.table.props.data);
-  }
+  };
 
   handleGetSelectedData = () => {
     console.log(this.node.selectionContext.selected);
-  }
+  };
 
   handleGetExpandedData = () => {
     console.log(this.node.rowExpandContext.state.expanded);
-  }
+  };
 
   handleGetCurrentPage = () => {
     console.log(this.node.paginationContext.currPage);
-  }
+  };
 
   handleGetCurrentSizePerPage = () => {
     console.log(this.node.paginationContext.currSizePerPage);
-  }
+  };
 
   handleGetCurrentSortColumn = () => {
     console.log(this.node.sortContext.state.sortColumn);
-  }
+  };
 
   handleGetCurrentSortOrder = () => {
     console.log(this.node.sortContext.state.sortOrder);
-  }
+  };
 
   handleGetCurrentFilter = () => {
     console.log(this.node.filterContext.currFilters);
-  }
+  };
 
   render() {
     const expandRow = {
-      renderer: row => (
+      renderer: (row) => (
         <div>
           <p>{ `This Expand row is belong to rowKey ${row.id}` }</p>
           <p>You can render anything here, also you can add additional data on every row object</p>
@@ -170,7 +170,7 @@ export default class ExposedFunctionTable extends React.Component {
         <button className="btn btn-default" onClick={ this.handleGetCurrentSortOrder }>Get Current Sort Order</button>
         <button className="btn btn-default" onClick={ this.handleGetCurrentFilter }>Get Current Filter Information</button>
         <BootstrapTable
-          ref={ n => this.node = n }
+          ref={ (n) => this.node = n }
           keyField="id"
           data={ products }
           columns={ columns }

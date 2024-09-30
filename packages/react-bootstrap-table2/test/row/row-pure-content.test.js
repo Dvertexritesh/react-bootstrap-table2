@@ -148,7 +148,9 @@ describe('RowPureContent', () => {
   describe('when editingRowIdx and editingColIdx prop is defined', () => {
     const editingRowIdx = rowIndex;
     const editingColIdx = 1;
-    const EditingCellComponent = () => null;
+    function EditingCellComponent() {
+      return null;
+    }
     beforeEach(() => {
       wrapper = shallow(
         <RowPureContent
@@ -159,7 +161,8 @@ describe('RowPureContent', () => {
           EditingCellComponent={ EditingCellComponent }
           editingRowIdx={ editingRowIdx }
           editingColIdx={ editingColIdx }
-        />);
+        />
+      );
     });
 
     it('should render EditingCell component correctly', () => {
@@ -226,8 +229,7 @@ describe('RowPureContent', () => {
 
       it('should call custom style function correctly', () => {
         expect(styleCallBack).toHaveBeenCalledTimes(1);
-        expect(styleCallBack).toHaveBeenCalledWith(
-          row[columns[columnIndex].dataField], row, rowIndex, columnIndex);
+        expect(styleCallBack).toHaveBeenCalledWith(row[columns[columnIndex].dataField], row, rowIndex, columnIndex);
       });
     });
   });
@@ -286,8 +288,7 @@ describe('RowPureContent', () => {
 
       it('should call custom classes function correctly', () => {
         expect(classesCallBack).toHaveBeenCalledTimes(1);
-        expect(classesCallBack).toHaveBeenCalledWith(
-          row[columns[columnIndex].dataField], row, rowIndex, columnIndex);
+        expect(classesCallBack).toHaveBeenCalledWith(row[columns[columnIndex].dataField], row, rowIndex, columnIndex);
       });
     });
   });
@@ -346,8 +347,7 @@ describe('RowPureContent', () => {
 
       it('should call custom title function correctly', () => {
         expect(titleCallBack).toHaveBeenCalledTimes(1);
-        expect(titleCallBack).toHaveBeenCalledWith(
-          row[columns[columnIndex].dataField], row, rowIndex, columnIndex);
+        expect(titleCallBack).toHaveBeenCalledWith(row[columns[columnIndex].dataField], row, rowIndex, columnIndex);
       });
     });
   });
@@ -433,8 +433,7 @@ describe('RowPureContent', () => {
 
       it('should call custom align function correctly', () => {
         expect(alignCallBack).toHaveBeenCalledTimes(1);
-        expect(alignCallBack).toHaveBeenCalledWith(
-          row[columns[columnIndex].dataField], row, rowIndex, columnIndex);
+        expect(alignCallBack).toHaveBeenCalledWith(row[columns[columnIndex].dataField], row, rowIndex, columnIndex);
       });
     });
   });
@@ -589,8 +588,7 @@ describe('RowPureContent', () => {
 
       it('should call custom attrs function correctly', () => {
         expect(attrsCallBack).toHaveBeenCalledTimes(1);
-        expect(attrsCallBack).toHaveBeenCalledWith(
-          row[columns[columnIndex].dataField], row, rowIndex, columnIndex);
+        expect(attrsCallBack).toHaveBeenCalledWith(row[columns[columnIndex].dataField], row, rowIndex, columnIndex);
       });
     });
   });

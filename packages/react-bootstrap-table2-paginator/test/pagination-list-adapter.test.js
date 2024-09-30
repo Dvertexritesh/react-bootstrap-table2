@@ -2,8 +2,9 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import paginationListAdapter from '../src/pagination-list-adapter';
 
-
-const MockComponent = () => null;
+function MockComponent() {
+  return null;
+}
 
 const PaginationListAdapter = paginationListAdapter(MockComponent);
 describe('paginationListAdapter', () => {

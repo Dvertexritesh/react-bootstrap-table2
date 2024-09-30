@@ -60,22 +60,23 @@ const columns = [{
 </ToolkitProvider>
 `;
 
-export default () => (
-  <div>
-    <ToolkitProvider
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      exportCSV={ {
-        fileName: 'custom.csv',
-        separator: '|',
-        ignoreHeader: true,
-        noAutoBOM: false,
-        blobType: 'text/csv;charset=ansi'
-      } }
-    >
-      {
-        props => (
+export default function () {
+  return (
+    <div>
+      <ToolkitProvider
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        exportCSV={ {
+          fileName: 'custom.csv',
+          separator: '|',
+          ignoreHeader: true,
+          noAutoBOM: false,
+          blobType: 'text/csv;charset=ansi'
+        } }
+      >
+        {
+        (props) => (
           <div>
             <ExportCSVButton { ...props.csvProps }>Export CSV!!</ExportCSVButton>
             <hr />
@@ -83,7 +84,8 @@ export default () => (
           </div>
         )
       }
-    </ToolkitProvider>
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+      </ToolkitProvider>
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

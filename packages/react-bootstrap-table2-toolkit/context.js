@@ -36,13 +36,13 @@ class ToolkitProvider extends statelessDecorator(React.Component) {
         onlyExportSelection: PropTypes.bool
       })
     ])
-  }
+  };
 
   static defaultProps = {
     search: false,
     exportCSV: false,
     bootstrap4: false
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -66,7 +66,7 @@ class ToolkitProvider extends statelessDecorator(React.Component) {
 
   // eslint-disable-next-line camelcase
   UNSAFE_componentWillReceiveProps(nextProps) {
-    let columnToggle = this.state.columnToggle;
+    let { columnToggle } = this.state;
     if (nextProps.columnToggle) {
       columnToggle = nextProps.columns
         .reduce((obj, column) => {
@@ -100,9 +100,10 @@ class ToolkitProvider extends statelessDecorator(React.Component) {
       columnToggle
     }));
   }
+
   /**
-   * 
-   * @param {*} _ 
+   *
+   * @param {*} _
    * this function will be called only one time when table render
    * react-bootstrap-table-next/src/context/index.js will call this cb for passing the _ module
    * Please consider to extract a common module to handle _ module.

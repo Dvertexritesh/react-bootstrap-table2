@@ -76,7 +76,7 @@ export default () => (
 );
 `;
 
-// Implement startWith instead of contain 
+// Implement startWith instead of contain
 function customMatchFunc({
   searchText,
   value,
@@ -89,17 +89,18 @@ function customMatchFunc({
   return false;
 }
 
-export default () => (
-  <div>
-    <h1>Custom a search match function by startWith instead of contain</h1>
-    <ToolkitProvider
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      search={ { onColumnMatch: customMatchFunc } }
-    >
-      {
-        props => (
+export default function () {
+  return (
+    <div>
+      <h1>Custom a search match function by startWith instead of contain</h1>
+      <ToolkitProvider
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        search={ { onColumnMatch: customMatchFunc } }
+      >
+        {
+        (props) => (
           <div>
             <h3>Input something at below input field:</h3>
             <SearchBar { ...props.searchProps } />
@@ -110,7 +111,8 @@ export default () => (
           </div>
         )
       }
-    </ToolkitProvider>
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+      </ToolkitProvider>
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

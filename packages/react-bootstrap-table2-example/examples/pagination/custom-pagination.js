@@ -62,7 +62,19 @@ const options = {
 
 const customTotal = (from, to, size) => (
   <span className="react-bootstrap-table-pagination-total">
-    Showing { from } to { to } of { size } Results
+    Showing
+    {' '}
+    { from }
+    {' '}
+    to
+    {' '}
+    { to }
+    {' '}
+    of
+    {' '}
+    { size }
+    {' '}
+    Results
   </span>
 );
 
@@ -93,9 +105,11 @@ const options = {
   }] // A numeric array is also available. the purpose of above example is custom the text
 };
 
-export default () => (
-  <div>
-    <BootstrapTable keyField="id" data={ products } columns={ columns } pagination={ paginationFactory(options) } />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable keyField="id" data={ products } columns={ columns } pagination={ paginationFactory(options) } />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

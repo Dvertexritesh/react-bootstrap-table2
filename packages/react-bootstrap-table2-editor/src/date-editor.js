@@ -16,11 +16,13 @@ class DateEditor extends Component {
   }
 
   render() {
-    const { defaultValue, didMount, className, ...rest } = this.props;
+    const {
+      defaultValue, didMount, className, ...rest
+    } = this.props;
     const editorClass = cs('form-control editor edit-date', className);
     return (
       <input
-        ref={ node => this.date = node }
+        ref={ (node) => this.date = node }
         type="date"
         className={ editorClass }
         { ...rest }

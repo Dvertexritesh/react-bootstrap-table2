@@ -31,16 +31,18 @@ import BootstrapTable from 'react-bootstrap-table-next';
 />
 `;
 
-export default () => (
-  <div>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      striped
-      hover
-      condensed
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        striped
+        hover
+        condensed
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

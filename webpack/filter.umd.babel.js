@@ -1,5 +1,5 @@
 import * as path from 'path';
-import umdConfig from './webpack.umd.babel';
+import umdConfig from './webpack.umd.babel.js';
 
 module.exports = {
   ...umdConfig,

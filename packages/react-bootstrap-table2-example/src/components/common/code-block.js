@@ -4,10 +4,12 @@ import PropTypes from 'prop-types';
 export default class extends Component {
   static propTypes = {
     children: PropTypes.string
-  }
+  };
+
   static defaultProps = {
     children: ''
-  }
+  };
+
   componentDidMount() {
     // code-prettify
     // run the PR.prettyPrint() function once your page has finished loading

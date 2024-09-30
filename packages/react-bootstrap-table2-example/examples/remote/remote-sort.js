@@ -96,18 +96,20 @@ class Container extends React.Component {
 }
 `;
 
-const RemoteSort = props => (
-  <div>
-    <BootstrapTable
-      remote={ { sort: true } }
-      keyField="id"
-      data={ props.data }
-      columns={ columns }
-      onTableChange={ props.onTableChange }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+function RemoteSort(props) {
+  return (
+    <div>
+      <BootstrapTable
+        remote={ { sort: true } }
+        keyField="id"
+        data={ props.data }
+        columns={ columns }
+        onTableChange={ props.onTableChange }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}
 
 RemoteSort.propTypes = {
   data: PropTypes.array.isRequired,
@@ -129,7 +131,7 @@ class Container extends React.Component {
         result = data.sort((a, b) => {
           if (a[sortField] > b[sortField]) {
             return 1;
-          } else if (b[sortField] > a[sortField]) {
+          } if (b[sortField] > a[sortField]) {
             return -1;
           }
           return 0;
@@ -138,7 +140,7 @@ class Container extends React.Component {
         result = data.sort((a, b) => {
           if (a[sortField] > b[sortField]) {
             return -1;
-          } else if (b[sortField] > a[sortField]) {
+          } if (b[sortField] > a[sortField]) {
             return 1;
           }
           return 0;
@@ -148,7 +150,7 @@ class Container extends React.Component {
         data: result
       }));
     }, 2000);
-  }
+  };
 
   render() {
     return (

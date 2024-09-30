@@ -40,15 +40,17 @@ const columns = [{
 />
 `;
 
-export default () => (
-  <div>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      selectRow={ { mode: 'checkbox' } }
-      tabIndexCell
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        selectRow={ { mode: 'checkbox' } }
+        tabIndexCell
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

@@ -14,10 +14,11 @@ class QualityRanger extends React.Component {
   static propTypes = {
     value: PropTypes.number,
     onUpdate: PropTypes.func.isRequired
-  }
+  };
+
   static defaultProps = {
     value: 0
-  }
+  };
 
   componentDidMount() {
     this.range.focus();
@@ -26,13 +27,14 @@ class QualityRanger extends React.Component {
   getValue() {
     return parseInt(this.range.value, 10);
   }
+
   render() {
     const { value, onUpdate, ...rest } = this.props;
     return [
       <input
         { ...rest }
         key="range"
-        ref={ node => this.range = node }
+        ref={ (node) => this.range = node }
         type="range"
         min="0"
         max="100"
@@ -121,15 +123,17 @@ const columns = [{
 />
 `;
 
-export default () => (
-  <div>
-    <h3>Custom Editor</h3>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      cellEdit={ cellEditFactory({ mode: 'click', blurToSave: true }) }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <h3>Custom Editor</h3>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        cellEdit={ cellEditFactory({ mode: 'click', blurToSave: true }) }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

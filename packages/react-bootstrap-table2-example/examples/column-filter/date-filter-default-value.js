@@ -15,7 +15,7 @@ const columns = [{
 }, {
   dataField: 'inStockDate',
   text: 'InStock Date',
-  formatter: cell => cell.toString(),
+  formatter: (cell) => cell.toString(),
   filter: dateFilter({
     defaultValue: { date: new Date(2018, 0, 1), comparator: Comparator.GT }
   })
@@ -47,14 +47,16 @@ const columns = [{
 />
 `;
 
-export default () => (
-  <div>
-    <BootstrapTable
-      keyField="id"
-      data={ stocks }
-      columns={ columns }
-      filter={ filterFactory() }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable
+        keyField="id"
+        data={ stocks }
+        columns={ columns }
+        filter={ filterFactory() }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

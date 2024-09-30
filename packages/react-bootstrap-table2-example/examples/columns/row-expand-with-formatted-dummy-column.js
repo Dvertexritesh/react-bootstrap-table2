@@ -129,7 +129,7 @@ export default class DummyColumnWithRowExpand extends React.Component {
         style={ { width: '20px', height: '20px' } }
       />
     );
-  }
+  };
 
   rowEvents = {
     onMouseEnter: (e, row, rowIndex) => {
@@ -138,7 +138,7 @@ export default class DummyColumnWithRowExpand extends React.Component {
     onMouseLeave: () => {
       this.setState({ hoverIdx: null });
     }
-  }
+  };
 
   rowStyle = (row, rowIndex) => {
     row.index = rowIndex;
@@ -151,7 +151,7 @@ export default class DummyColumnWithRowExpand extends React.Component {
     style.borderTop = 'none';
 
     return style;
-  }
+  };
 
   render() {
     const columns = [{

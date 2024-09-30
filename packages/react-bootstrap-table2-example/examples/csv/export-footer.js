@@ -17,11 +17,11 @@ const columns = [{
   dataField: 'name',
   text: 'Product Name',
   footer: '',
-  footerFormatter: column => column.text
+  footerFormatter: (column) => column.text
 }, {
   dataField: 'price',
   text: 'Product Price',
-  footer: columnData => columnData.reduce((acc, item) => acc + item, 0)
+  footer: (columnData) => columnData.reduce((acc, item) => acc + item, 0)
 }];
 
 const sourceCode = `\
@@ -63,18 +63,19 @@ const columns = [{
 </ToolkitProvider>
 `;
 
-export default () => (
-  <div>
-    <ToolkitProvider
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      exportCSV={ {
-        ignoreFooter: false
-      } }
-    >
-      {
-        props => (
+export default function () {
+  return (
+    <div>
+      <ToolkitProvider
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        exportCSV={ {
+          ignoreFooter: false
+        } }
+      >
+        {
+        (props) => (
           <div>
             <ExportCSVButton { ...props.csvProps }>Export CSV!!</ExportCSVButton>
             <hr />
@@ -82,7 +83,8 @@ export default () => (
           </div>
         )
       }
-    </ToolkitProvider>
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+      </ToolkitProvider>
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

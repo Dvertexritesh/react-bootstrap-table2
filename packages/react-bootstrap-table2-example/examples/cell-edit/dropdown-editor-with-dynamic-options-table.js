@@ -7,7 +7,7 @@ import cellEditFactory, { Type } from 'react-bootstrap-table2-editor';
 import Code from 'components/common/code-block';
 import { jobsGenerator } from 'utils/common';
 
-const jobs = jobsGenerator().map(j => ({
+const jobs = jobsGenerator().map((j) => ({
   ...j,
   type2: j.type
 }));
@@ -150,15 +150,17 @@ const columns = [{
 />
 `;
 
-export default () => (
-  <div>
-    <h3>Dropdown Editor with Dynamic Options</h3>
-    <BootstrapTable
-      keyField="id"
-      data={ jobs }
-      columns={ columns }
-      cellEdit={ cellEditFactory({ mode: 'click', blurToSave: true }) }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <h3>Dropdown Editor with Dynamic Options</h3>
+      <BootstrapTable
+        keyField="id"
+        data={ jobs }
+        columns={ columns }
+        cellEdit={ cellEditFactory({ mode: 'click', blurToSave: true }) }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

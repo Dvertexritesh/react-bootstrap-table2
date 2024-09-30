@@ -74,15 +74,29 @@ export default class OnetimeSortConfiguration extends React.Component {
       return b - a;
     }
     return a - b; // desc
-  }
+  };
 
   render() {
     const sortOption = {
       sortFunc: this.sortFunc,
       sortCaret: (order, column) => {
         if (!order) return (<span>&nbsp;&nbsp;Desc/Asc</span>);
-        else if (order === 'asc') return (<span>&nbsp;&nbsp;Desc/<font color="red">Asc</font></span>);
-        else if (order === 'desc') return (<span>&nbsp;&nbsp;<font color="red">Desc</font>/Asc</span>);
+        if (order === 'asc') {
+          return (
+            <span>
+&nbsp;&nbsp;Desc/
+              <font color="red">Asc</font>
+            </span>
+          );
+        }
+        if (order === 'desc') {
+          return (
+            <span>
+              <font color="red">Desc</font>
+              /Asc
+            </span>
+          );
+        }
         return null;
       }
     };

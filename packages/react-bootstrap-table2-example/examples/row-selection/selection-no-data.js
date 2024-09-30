@@ -48,15 +48,17 @@ const selectRow = {
 />
 `;
 
-export default () => (
-  <div>
-    <BootstrapTable
-      keyField="id"
-      data={ [] }
-      columns={ columns }
-      selectRow={ selectRow1 }
-      noDataIndication={ 'no results found' }
-    />
-    <Code>{ sourceCode1 }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable
+        keyField="id"
+        data={ [] }
+        columns={ columns }
+        selectRow={ selectRow1 }
+        noDataIndication="no results found"
+      />
+      <Code>{ sourceCode1 }</Code>
+    </div>
+  );
+}

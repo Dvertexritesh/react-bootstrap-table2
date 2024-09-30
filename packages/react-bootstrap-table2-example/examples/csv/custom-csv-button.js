@@ -63,7 +63,7 @@ const MyExportCSV = (props) => {
 </ToolkitProvider>
 `;
 
-const MyExportCSV = (props) => {
+function MyExportCSV(props) {
   const handleClick = () => {
     props.onExport();
   };
@@ -72,18 +72,19 @@ const MyExportCSV = (props) => {
       <button className="btn btn-success" onClick={ handleClick }>Export to CSV</button>
     </div>
   );
-};
+}
 
-export default () => (
-  <div>
-    <ToolkitProvider
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      exportCSV
-    >
-      {
-        props => (
+export default function () {
+  return (
+    <div>
+      <ToolkitProvider
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        exportCSV
+      >
+        {
+        (props) => (
           <div>
             <BootstrapTable { ...props.baseProps } />
             <hr />
@@ -91,7 +92,8 @@ export default () => (
           </div>
         )
       }
-    </ToolkitProvider>
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+      </ToolkitProvider>
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

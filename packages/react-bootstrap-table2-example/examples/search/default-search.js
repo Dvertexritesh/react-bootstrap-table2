@@ -57,16 +57,17 @@ const columns = [{
 </ToolkitProvider>
 `;
 
-export default () => (
-  <div>
-    <ToolkitProvider
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      search={ { defaultSearch: '2101' } }
-    >
-      {
-        props => (
+export default function () {
+  return (
+    <div>
+      <ToolkitProvider
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        search={ { defaultSearch: '2101' } }
+      >
+        {
+        (props) => (
           <div>
             <h3>Input something at below input field:</h3>
             <SearchBar { ...props.searchProps } />
@@ -77,7 +78,8 @@ export default () => (
           </div>
         )
       }
-    </ToolkitProvider>
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+      </ToolkitProvider>
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

@@ -77,7 +77,7 @@ const selectRow = {
 };
 
 const expandRow = {
-  renderer: row => (
+  renderer: (row) => (
     <div>
       <p>{ `This Expand row is belong to rowKey ${row.id}` }</p>
       <p>You can render anything here, also you can add additional data on every row object</p>
@@ -88,27 +88,29 @@ const expandRow = {
   expandColumnPosition: 'right'
 };
 
-export default () => (
-  <div>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      filter={ filterFactory() }
-      filterPosition="top"
-      expandRow={ expandRow }
-      selectRow={ selectRow }
-    />
-    <Code>{ sourceCode1 }</Code>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      filter={ filterFactory() }
-      filterPosition="bottom"
-      expandRow={ expandRow }
-      selectRow={ selectRow }
-    />
-    <Code>{ sourceCode2 }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        filter={ filterFactory() }
+        filterPosition="top"
+        expandRow={ expandRow }
+        selectRow={ selectRow }
+      />
+      <Code>{ sourceCode1 }</Code>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        filter={ filterFactory() }
+        filterPosition="bottom"
+        expandRow={ expandRow }
+        selectRow={ selectRow }
+      />
+      <Code>{ sourceCode2 }</Code>
+    </div>
+  );
+}

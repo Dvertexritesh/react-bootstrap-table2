@@ -100,11 +100,13 @@ const selectRow = {
 />
 `;
 
-export default () => (
-  <div>
-    <BootstrapTable keyField="id" data={ products } columns={ columns } selectRow={ selectRow1 } />
-    <Code>{ sourceCode1 }</Code>
-    <BootstrapTable keyField="id" data={ products } columns={ columns } selectRow={ selectRow2 } />
-    <Code>{ sourceCode2 }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable keyField="id" data={ products } columns={ columns } selectRow={ selectRow1 } />
+      <Code>{ sourceCode1 }</Code>
+      <BootstrapTable keyField="id" data={ products } columns={ columns } selectRow={ selectRow2 } />
+      <Code>{ sourceCode2 }</Code>
+    </div>
+  );
+}

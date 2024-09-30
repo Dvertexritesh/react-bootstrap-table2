@@ -86,15 +86,17 @@ const columns = [{
 />
 `;
 
-export default () => (
-  <div>
-    <h3>Dropdown Editor</h3>
-    <BootstrapTable
-      keyField="id"
-      data={ jobs }
-      columns={ columns }
-      cellEdit={ cellEditFactory({ mode: 'click', blurToSave: true }) }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <h3>Dropdown Editor</h3>
+      <BootstrapTable
+        keyField="id"
+        data={ jobs }
+        columns={ columns }
+        cellEdit={ cellEditFactory({ mode: 'click', blurToSave: true }) }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

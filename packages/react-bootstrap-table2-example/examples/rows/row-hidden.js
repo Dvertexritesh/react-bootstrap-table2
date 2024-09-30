@@ -49,9 +49,11 @@ const hiddenRowKeys = [1, 3];
 
 const hiddenRowKeys = [1, 3];
 
-export default () => (
-  <div>
-    <BootstrapTable keyField="id" data={ products } columns={ columns } hiddenRows={ hiddenRowKeys } />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable keyField="id" data={ products } columns={ columns } hiddenRows={ hiddenRowKeys } />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

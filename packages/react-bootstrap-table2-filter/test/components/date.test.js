@@ -5,10 +5,8 @@ import DateFilter from '../../src/components/date';
 import { FILTER_TYPE } from '../../src/const';
 import * as Comparator from '../../src/comparison';
 
-
 describe('Date Filter', () => {
   let wrapper;
-
 
   const onFilterFirstReturn = jest.fn();
   const onFilter = jest.fn().mockReturnValue(onFilterFirstReturn);

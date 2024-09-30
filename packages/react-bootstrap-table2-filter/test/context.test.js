@@ -32,7 +32,7 @@ describe('FilterContext', () => {
     filter: textFilter()
   }];
 
-  const mockBase = jest.fn((props => (
+  const mockBase = jest.fn(((props) => (
     <BootstrapTable
       keyField="id"
       data={ data }
@@ -46,7 +46,7 @@ describe('FilterContext', () => {
   function shallowContext(
     enableRemote = false,
     tableColumns = columns,
-    dataChangeListener,
+    dataChangeListener
   ) {
     mockBase.mockReset();
     handleFilterChange.mockReset();
@@ -66,7 +66,7 @@ describe('FilterContext', () => {
       >
         <FilterContext.Consumer>
           {
-            filterProps => mockBase(filterProps)
+            (filterProps) => mockBase(filterProps)
           }
         </FilterContext.Consumer>
       </FilterContext.Provider>

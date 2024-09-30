@@ -101,10 +101,13 @@ class Container extends React.Component {
 }
 `;
 
-const RemotePagination = ({ data, page, sizePerPage, onTableChange, totalSize }) => (
-  <div>
-    <PaginationProvider
-      pagination={
+function RemotePagination({
+  data, page, sizePerPage, onTableChange, totalSize
+}) {
+  return (
+    <div>
+      <PaginationProvider
+        pagination={
         paginationFactory({
           custom: true,
           page,
@@ -112,16 +115,22 @@ const RemotePagination = ({ data, page, sizePerPage, onTableChange, totalSize })
           totalSize
         })
       }
-    >
-      {
+      >
+        {
         ({
           paginationProps,
           paginationTableProps
         }) => (
           <div>
             <div>
-              <p>Current Page: { paginationProps.page }</p>
-              <p>Current SizePerPage: { paginationProps.sizePerPage }</p>
+              <p>
+                Current Page:
+                { paginationProps.page }
+              </p>
+              <p>
+                Current SizePerPage:
+                { paginationProps.sizePerPage }
+              </p>
             </div>
             <div>
               <PaginationListStandalone
@@ -139,10 +148,11 @@ const RemotePagination = ({ data, page, sizePerPage, onTableChange, totalSize })
           </div>
         )
       }
-    </PaginationProvider>
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+      </PaginationProvider>
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}
 
 RemotePagination.propTypes = {
   data: PropTypes.array.isRequired,
@@ -171,7 +181,7 @@ class Container extends React.Component {
         sizePerPage
       }));
     }, 2000);
-  }
+  };
 
   render() {
     const { data, sizePerPage, page } = this.state;

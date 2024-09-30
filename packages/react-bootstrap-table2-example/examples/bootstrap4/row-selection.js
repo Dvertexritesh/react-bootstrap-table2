@@ -50,9 +50,11 @@ const selectRow = {
 />
 `;
 
-export default () => (
-  <div>
-    <BootstrapTable bootstrap4 keyField="id" data={ products } columns={ columns } selectRow={ selectRow } />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable bootstrap4 keyField="id" data={ products } columns={ columns } selectRow={ selectRow } />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

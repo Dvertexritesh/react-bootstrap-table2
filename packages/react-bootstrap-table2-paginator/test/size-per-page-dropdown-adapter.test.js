@@ -2,15 +2,16 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import sizePerPageDropdownAdapter from '../src/size-per-page-dropdown-adapter';
 
-
-const MockComponent = () => null;
+function MockComponent() {
+  return null;
+}
 
 const SizePerPageDropdownAdapter = sizePerPageDropdownAdapter(MockComponent);
 describe('sizePerPageDropdownAdapter', () => {
   let wrapper;
   let instance;
 
-  const createMockProps = props => ({
+  const createMockProps = (props) => ({
     dataSize: 100,
     sizePerPageList: [10, 20, 30, 50],
     currPage: 1,

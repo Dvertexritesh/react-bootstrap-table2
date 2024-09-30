@@ -37,9 +37,11 @@ const columns = [{
 <BootstrapTable bootstrap4 keyField='id' data={ products } columns={ columns } pagination={ paginationFactory() } />
 `;
 
-export default () => (
-  <div>
-    <BootstrapTable bootstrap4 keyField="id" data={ products } columns={ columns } pagination={ paginationFactory() } />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable bootstrap4 keyField="id" data={ products } columns={ columns } pagination={ paginationFactory() } />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

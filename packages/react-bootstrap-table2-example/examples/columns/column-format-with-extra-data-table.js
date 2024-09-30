@@ -60,14 +60,16 @@ const columns = [
 />
 `;
 
-export default () => (
-  <div>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      bordered={ false }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        bordered={ false }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

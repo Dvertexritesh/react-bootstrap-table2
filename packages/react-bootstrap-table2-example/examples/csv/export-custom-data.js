@@ -64,28 +64,29 @@ const MyExportCSV = (props) => {
 </ToolkitProvider>
 `;
 
-const MyExportCSV = (props) => {
+function MyExportCSV(props) {
   const handleClick = () => {
     // passing my custom data
-    props.onExport(products.filter(r => r.id > 2));
+    props.onExport(products.filter((r) => r.id > 2));
   };
   return (
     <div>
       <button className="btn btn-success" onClick={ handleClick }>Only export Product ID bigger than 2</button>
     </div>
   );
-};
+}
 
-export default () => (
-  <div>
-    <ToolkitProvider
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      exportCSV
-    >
-      {
-        props => (
+export default function () {
+  return (
+    <div>
+      <ToolkitProvider
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        exportCSV
+      >
+        {
+        (props) => (
           <div>
             <BootstrapTable { ...props.baseProps } />
             <hr />
@@ -93,7 +94,8 @@ export default () => (
           </div>
         )
       }
-    </ToolkitProvider>
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+      </ToolkitProvider>
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

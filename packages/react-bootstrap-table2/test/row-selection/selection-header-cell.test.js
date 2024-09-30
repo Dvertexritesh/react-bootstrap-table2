@@ -161,7 +161,9 @@ describe('<SelectionHeaderCell />', () => {
 
     describe('when props.selectionHeaderRenderer is defined', () => {
       const checkedStatus = Const.CHECKBOX_STATUS_CHECKED;
-      const DummySelection = () => <div className="dummy" />;
+      function DummySelection() {
+        return <div className="dummy" />;
+      }
       const selectionHeaderRenderer = jest.fn().mockReturnValue(<DummySelection />);
 
       beforeEach(() => {

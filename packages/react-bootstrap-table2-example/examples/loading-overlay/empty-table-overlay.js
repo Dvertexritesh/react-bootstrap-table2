@@ -86,30 +86,36 @@ class EmptyTableOverlay extends React.Component {
 }
 `;
 
-const NoDataIndication = () => (
-  <div className="spinner">
-    <div className="rect1" />
-    <div className="rect2" />
-    <div className="rect3" />
-    <div className="rect4" />
-    <div className="rect5" />
-  </div>
-);
+function NoDataIndication() {
+  return (
+    <div className="spinner">
+      <div className="rect1" />
+      <div className="rect2" />
+      <div className="rect3" />
+      <div className="rect4" />
+      <div className="rect5" />
+    </div>
+  );
+}
 
-const Table = ({ data, page, sizePerPage, onTableChange, totalSize }) => (
-  <div>
-    <BootstrapTable
-      remote
-      keyField="id"
-      data={ data }
-      columns={ columns }
-      pagination={ paginationFactory({ page, sizePerPage, totalSize }) }
-      onTableChange={ onTableChange }
-      noDataIndication={ () => <NoDataIndication /> }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+function Table({
+  data, page, sizePerPage, onTableChange, totalSize
+}) {
+  return (
+    <div>
+      <BootstrapTable
+        remote
+        keyField="id"
+        data={ data }
+        columns={ columns }
+        pagination={ paginationFactory({ page, sizePerPage, totalSize }) }
+        onTableChange={ onTableChange }
+        noDataIndication={ () => <NoDataIndication /> }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}
 
 Table.propTypes = {
   data: PropTypes.array.isRequired,
@@ -139,7 +145,7 @@ class EmptyTableOverlay extends React.Component {
       }));
     }, 3000);
     this.setState(() => ({ data: [] }));
-  }
+  };
 
   render() {
     const { data, sizePerPage, page } = this.state;

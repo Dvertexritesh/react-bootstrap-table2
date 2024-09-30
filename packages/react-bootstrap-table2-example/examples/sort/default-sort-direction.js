@@ -21,7 +21,6 @@ const columns = [{
   sort: true
 }];
 
-
 const sourceCode = `\
 import BootstrapTable from 'react-bootstrap-table-next';
 
@@ -51,7 +50,6 @@ const defaultSorted = [{
   defaultSortDirection="asc"
 />
 `;
-
 
 class DefaultSortDirectionTable extends React.PureComponent {
   render() {

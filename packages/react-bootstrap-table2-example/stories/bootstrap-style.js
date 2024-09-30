@@ -11,7 +11,7 @@ class WithBootstrapStyle extends PureComponent {
   static propTypes = {
     version: PropTypes.string.isRequired,
     render: PropTypes.func.isRequired
-  }
+  };
 
   constructor() {
     super();
@@ -29,7 +29,7 @@ class WithBootstrapStyle extends PureComponent {
 
   handleLoadEvent = () => {
     this.setState({ loading: false });
-  }
+  };
 
   render() {
     const { version, render } = this.props;
@@ -37,20 +37,22 @@ class WithBootstrapStyle extends PureComponent {
     const href = `style/bootstrap.${version}.min.css`;
 
     return (
-      <Fragment>
-        <link href={ href } rel="stylesheet" ref={ element => this.style = element } />
+      <>
+        <link href={ href } rel="stylesheet" ref={ (element) => this.style = element } />
         { render(this.state.loading) }
-      </Fragment>
+      </>
     );
   }
 }
 
 /**
- * Currently we adopt version 3 as default. 
+ * Currently we adopt version 3 as default.
  */
-export default (version = BOOTSTRAP_VERSION.THREE) => story => (
-  <WithBootstrapStyle
-    version={ version }
-    render={ loading => !loading && story() }
-  />
-);
+export default (version = BOOTSTRAP_VERSION.THREE) => function (story) {
+  return (
+    <WithBootstrapStyle
+      version={ version }
+      render={ (loading) => !loading && story() }
+    />
+  );
+};

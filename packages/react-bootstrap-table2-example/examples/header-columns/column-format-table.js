@@ -9,7 +9,14 @@ const products = productsGenerator();
 
 function priceFormatter(column, colIndex) {
   return (
-    <h5><strong>$$ { column.text } $$</strong></h5>
+    <h5>
+      <strong>
+        $$
+        { column.text }
+        {' '}
+        $$
+      </strong>
+    </h5>
   );
 }
 
@@ -49,13 +56,15 @@ const columns = [
 />
 `;
 
-export default () => (
-  <div>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

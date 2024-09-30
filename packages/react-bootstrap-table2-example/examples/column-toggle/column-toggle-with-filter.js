@@ -67,17 +67,18 @@ const columns = [{
 </ToolkitProvider>
 `;
 
-export default () => (
-  <div>
-    <h3>Table will keep the filter/sort state when column toggle</h3>
-    <ToolkitProvider
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      columnToggle
-    >
-      {
-        props => (
+export default function () {
+  return (
+    <div>
+      <h3>Table will keep the filter/sort state when column toggle</h3>
+      <ToolkitProvider
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        columnToggle
+      >
+        {
+        (props) => (
           <div>
             <ToggleList { ...props.columnToggleProps } />
             <hr />
@@ -88,7 +89,8 @@ export default () => (
           </div>
         )
       }
-    </ToolkitProvider>
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+      </ToolkitProvider>
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

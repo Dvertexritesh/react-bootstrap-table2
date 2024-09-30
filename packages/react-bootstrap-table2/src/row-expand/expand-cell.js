@@ -15,7 +15,7 @@ export default class ExpandCell extends Component {
     expandColumnRenderer: PropTypes.func,
     rowIndex: PropTypes.number,
     tabIndex: PropTypes.number
-  }
+  };
 
   constructor() {
     super();
@@ -23,23 +23,26 @@ export default class ExpandCell extends Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    const shouldUpdate =
-      this.props.rowIndex !== nextProps.rowIndex ||
-      this.props.expanded !== nextProps.expanded ||
-      this.props.rowKey !== nextProps.rowKey ||
-      this.props.tabIndex !== nextProps.tabIndex;
+    const shouldUpdate = this.props.rowIndex !== nextProps.rowIndex
+      || this.props.expanded !== nextProps.expanded
+      || this.props.rowKey !== nextProps.rowKey
+      || this.props.tabIndex !== nextProps.tabIndex;
 
     return shouldUpdate;
   }
 
   handleClick(e) {
-    const { rowKey, expanded, onRowExpand, rowIndex } = this.props;
+    const {
+      rowKey, expanded, onRowExpand, rowIndex
+    } = this.props;
     e.stopPropagation();
     onRowExpand(rowKey, !expanded, rowIndex, e);
   }
 
   render() {
-    const { expanded, expandable, expandColumnRenderer, tabIndex, rowKey } = this.props;
+    const {
+      expanded, expandable, expandColumnRenderer, tabIndex, rowKey
+    } = this.props;
     const attrs = {};
     if (tabIndex !== -1) attrs.tabIndex = tabIndex;
 

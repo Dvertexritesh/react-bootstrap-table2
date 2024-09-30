@@ -22,8 +22,10 @@ describe('PaginationStateContext', () => {
 
   const defaultPagination = { options: {}, createContext: jest.fn() };
 
-  const MockComponent = () => null;
-  const renderMockComponent = jest.fn((props => (
+  function MockComponent() {
+    return null;
+  }
+  const renderMockComponent = jest.fn(((props) => (
     <MockComponent { ...props } />
   )));
 
@@ -45,7 +47,7 @@ describe('PaginationStateContext', () => {
       >
         <PaginationStateContext.Consumer>
           {
-            paginationProps => renderMockComponent(paginationProps)
+            (paginationProps) => renderMockComponent(paginationProps)
           }
         </PaginationStateContext.Consumer>
       </PaginationStateContext.Provider>
@@ -178,7 +180,9 @@ describe('PaginationStateContext', () => {
           data,
           pagination: {
             ...defaultPagination,
-            options: { page: 3, sizePerPage: 5, custom: true, totalSize: 50 }
+            options: {
+              page: 3, sizePerPage: 5, custom: true, totalSize: 50
+            }
           }
         };
         instance.UNSAFE_componentWillReceiveProps(nextProps);

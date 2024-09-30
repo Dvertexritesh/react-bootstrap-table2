@@ -17,7 +17,7 @@ const columns = [{
 }, {
   dataField: 'inStockDate',
   text: 'InStock Date',
-  formatter: cell => cell.toString(),
+  formatter: (cell) => cell.toString(),
   filter: dateFilter({
     getFilter: (filter) => {
       // inStockDateFilter was assigned once the component has been mounted.
@@ -72,15 +72,17 @@ export default () => (
 );
 `;
 
-export default () => (
-  <div>
-    <button className="btn btn-lg btn-primary" onClick={ handleClick }> filter InStock Date columns which is greater than 2018.01.01 </button>
-    <BootstrapTable
-      keyField="id"
-      data={ stocks }
-      columns={ columns }
-      filter={ filterFactory() }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <button className="btn btn-lg btn-primary" onClick={ handleClick }> filter InStock Date columns which is greater than 2018.01.01 </button>
+      <BootstrapTable
+        keyField="id"
+        data={ stocks }
+        columns={ columns }
+        filter={ filterFactory() }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

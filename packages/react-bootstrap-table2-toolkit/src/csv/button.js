@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ExportCSVButton = (props) => {
+function ExportCSVButton(props) {
   const {
     onExport,
     children,
@@ -19,7 +19,7 @@ const ExportCSVButton = (props) => {
       { children }
     </button>
   );
-};
+}
 
 ExportCSVButton.propTypes = {
   children: PropTypes.node.isRequired,

@@ -2,8 +2,9 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import paginationTotalAdapter from '../src/pagination-total-adapter';
 
-
-const MockComponent = () => null;
+function MockComponent() {
+  return null;
+}
 
 const PaginationTotalAdapter = paginationTotalAdapter(MockComponent);
 

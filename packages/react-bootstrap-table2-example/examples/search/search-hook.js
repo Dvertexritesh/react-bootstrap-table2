@@ -65,16 +65,17 @@ const afterSearch = (newResult) => {
   console.log(newResult);
 };
 
-export default () => (
-  <div>
-    <ToolkitProvider
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      search={ { afterSearch } }
-    >
-      {
-        props => (
+export default function () {
+  return (
+    <div>
+      <ToolkitProvider
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        search={ { afterSearch } }
+      >
+        {
+        (props) => (
           <div>
             <h3>Input something at below input field:</h3>
             <SearchBar { ...props.searchProps } />
@@ -85,7 +86,8 @@ export default () => (
           </div>
         )
       }
-    </ToolkitProvider>
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+      </ToolkitProvider>
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

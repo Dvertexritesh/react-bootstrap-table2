@@ -73,7 +73,7 @@ const MySearch = (props) => {
 </ToolkitProvider>
 `;
 
-const MySearch = (props) => {
+function MySearch(props) {
   let input;
   const handleClick = () => {
     props.onSearch(input.value);
@@ -83,24 +83,25 @@ const MySearch = (props) => {
       <input
         className="form-control"
         style={ { backgroundColor: 'pink' } }
-        ref={ n => input = n }
+        ref={ (n) => input = n }
         type="text"
       />
       <button className="btn btn-warning" onClick={ handleClick }>Click to Search!!</button>
     </div>
   );
-};
+}
 
-export default () => (
-  <div>
-    <ToolkitProvider
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      search
-    >
-      {
-        props => (
+export default function () {
+  return (
+    <div>
+      <ToolkitProvider
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        search
+      >
+        {
+        (props) => (
           <div>
             <BootstrapTable
               { ...props.baseProps }
@@ -110,7 +111,8 @@ export default () => (
           </div>
         )
       }
-    </ToolkitProvider>
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+      </ToolkitProvider>
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

@@ -73,10 +73,12 @@ const columns = [{
 <BootstrapTable keyField='id' data={ products } columns={ columns } />
 `;
 
-export default () => (
-  <div>
-    <h3>Try to Click or Mouse over on Product ID columns</h3>
-    <BootstrapTable keyField="id" data={ products } columns={ columns } />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <h3>Try to Click or Mouse over on Product ID columns</h3>
+      <BootstrapTable keyField="id" data={ products } columns={ columns } />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

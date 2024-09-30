@@ -95,10 +95,10 @@ export default class SelectionManagment extends React.Component {
       }));
     } else {
       this.setState(() => ({
-        selected: this.state.selected.filter(x => x !== 2)
+        selected: this.state.selected.filter((x) => x !== 2)
       }));
     }
-  }
+  };
 
   handleOnSelect = (row, isSelect) => {
     if (isSelect) {
@@ -107,13 +107,13 @@ export default class SelectionManagment extends React.Component {
       }));
     } else {
       this.setState(() => ({
-        selected: this.state.selected.filter(x => x !== row.id)
+        selected: this.state.selected.filter((x) => x !== row.id)
       }));
     }
-  }
+  };
 
   handleOnSelectAll = (isSelect, rows) => {
-    const ids = rows.map(r => r.id);
+    const ids = rows.map((r) => r.id);
     if (isSelect) {
       this.setState(() => ({
         selected: ids
@@ -123,7 +123,7 @@ export default class SelectionManagment extends React.Component {
         selected: []
       }));
     }
-  }
+  };
 
   render() {
     const selectRow = {

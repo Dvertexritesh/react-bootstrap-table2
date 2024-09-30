@@ -25,7 +25,7 @@ const columns = [{
 }, {
   dataField: 'quality',
   text: 'Product Quailty',
-  formatter: cell => selectOptions[cell],
+  formatter: (cell) => selectOptions[cell],
   filter: selectFilter({
     options: selectOptions,
     defaultValue: 0
@@ -121,11 +121,11 @@ class Table extends React.Component {
 `;
 
 export default class Table extends React.Component {
-  state = { products }
+  state = { products };
 
   loadData = () => {
     this.setState({ products: productsQualityGenerator(40, 7) });
-  }
+  };
 
   render() {
     const options = {

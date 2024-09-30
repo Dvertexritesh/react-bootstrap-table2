@@ -30,7 +30,7 @@ describe('DataContext', () => {
     text: 'Name'
   }];
 
-  const mockBase = jest.fn((props => (
+  const mockBase = jest.fn(((props) => (
     <BootstrapTable
       data={ data }
       columns={ columns }
@@ -52,7 +52,7 @@ describe('DataContext', () => {
       >
         <SelectionContext.Consumer>
           {
-            selectionProps => mockBase(selectionProps)
+            (selectionProps) => mockBase(selectionProps)
           }
         </SelectionContext.Consumer>
       </SelectionContext.Provider>
@@ -222,7 +222,7 @@ describe('DataContext', () => {
       });
 
       it('should set this.selected correctly', () => {
-        expect(wrapper.instance().selected).toEqual(data.map(d => d[keyField]));
+        expect(wrapper.instance().selected).toEqual(data.map((d) => d[keyField]));
       });
 
       describe('when selectRow.onSelectAll is defined', () => {
@@ -249,7 +249,7 @@ describe('DataContext', () => {
       beforeEach(() => {
         wrapper = shallow(shallowContext({
           ...defaultSelectRow,
-          selected: data.map(d => d[keyField])
+          selected: data.map((d) => d[keyField])
         }));
         wrapper.instance().handleAllRowsSelect(e, true);
       });
@@ -263,7 +263,7 @@ describe('DataContext', () => {
         beforeEach(() => {
           wrapper = shallow(shallowContext({
             ...defaultSelectRow,
-            selected: data.map(d => d[keyField]),
+            selected: data.map((d) => d[keyField]),
             onSelectAll
           }));
           wrapper.instance().handleAllRowsSelect(e, true);
@@ -272,7 +272,7 @@ describe('DataContext', () => {
         it('should call selectRow.onSelectAll correctly', () => {
           expect(onSelectAll).toHaveBeenCalledWith(
             false,
-            dataOperator.getSelectedRows(data, keyField, data.map(d => d[keyField])),
+            dataOperator.getSelectedRows(data, keyField, data.map((d) => d[keyField])),
             e
           );
         });

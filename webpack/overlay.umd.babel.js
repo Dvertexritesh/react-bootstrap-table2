@@ -1,7 +1,7 @@
 import * as path from 'path';
-import umdConfig from './webpack.umd.babel';
+import umdConfig from './webpack.umd.babel.js';
 
-module.exports = {
+export default {
   ...umdConfig,
   entry: {
     'react-bootstrap-table2-overlay/dist/react-bootstrap-table2-overlay': './packages/react-bootstrap-table2-overlay/index.js',

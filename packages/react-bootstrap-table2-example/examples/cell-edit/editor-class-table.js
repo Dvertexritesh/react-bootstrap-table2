@@ -18,8 +18,7 @@ const columns = [{
 }, {
   dataField: 'price',
   text: 'Product Price',
-  editorClasses: (cell, row, rowIndex, colIndex) =>
-    (cell > 2101 ? 'editing-price-bigger-than-2101' : 'editing-price-small-than-2101')
+  editorClasses: (cell, row, rowIndex, colIndex) => (cell > 2101 ? 'editing-price-bigger-than-2101' : 'editing-price-small-than-2101')
 }];
 
 const sourceCode = `\
@@ -48,14 +47,16 @@ const columns = [{
 />
 `;
 
-export default () => (
-  <div>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      cellEdit={ cellEditFactory({ mode: 'click' }) }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        cellEdit={ cellEditFactory({ mode: 'click' }) }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

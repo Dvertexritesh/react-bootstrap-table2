@@ -269,7 +269,9 @@ describe('<SelectionCell />', () => {
     });
 
     describe('when selectionRenderer prop is defined', () => {
-      const DummySelection = () => <div className="dummy" />;
+      function DummySelection() {
+        return <div className="dummy" />;
+      }
       const selectionRenderer = jest.fn().mockReturnValue(<DummySelection />);
 
       beforeEach(() => {

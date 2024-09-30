@@ -70,7 +70,7 @@ export default (Component) => {
   function withConsumer(props) {
     return (
       <SelectionContext.Consumer>
-        { selectRow => renderWithSelection(props, selectRow) }
+        { (selectRow) => renderWithSelection(props, selectRow) }
       </SelectionContext.Consumer>
     );
   }

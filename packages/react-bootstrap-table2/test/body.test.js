@@ -54,7 +54,8 @@ describe('Body', () => {
           data={ data }
           visibleColumnSize={ columns.length }
           isEmpty
-        />);
+        />
+      );
     });
 
     it('should not render', () => {
@@ -78,7 +79,8 @@ describe('Body', () => {
               visibleColumnSize={ columns.length }
               noDataIndication={ emptyIndication }
               isEmpty
-            />);
+            />
+          );
         });
 
         it('should render successfully', () => {
@@ -104,7 +106,8 @@ describe('Body', () => {
               visibleColumnSize={ columns.length }
               noDataIndication={ emptyIndicationCallBack }
               isEmpty
-            />);
+            />
+          );
         });
 
         it('should render successfully', () => {
@@ -133,7 +136,8 @@ describe('Body', () => {
             columns={ columns }
             data={ data }
             rowStyle={ rowStyle }
-          />);
+          />
+        );
       });
 
       it('should rendering Row component with correct style', () => {
@@ -154,7 +158,8 @@ describe('Body', () => {
             columns={ columns }
             data={ data }
             rowStyle={ rowStyleCallBack }
-          />);
+          />
+        );
       });
 
       it('should calling rowStyle callBack correctly', () => {
@@ -187,7 +192,8 @@ describe('Body', () => {
             columns={ columns }
             data={ data }
             rowClasses={ rowClasses }
-          />);
+          />
+        );
       });
 
       it('should rendering Row component with correct className', () => {
@@ -209,7 +215,8 @@ describe('Body', () => {
             columns={ columns }
             data={ data }
             rowClasses={ rowClassesCallBack }
-          />);
+          />
+        );
       });
 
       it('should calling rowClasses callback correctly', () => {
@@ -242,7 +249,8 @@ describe('Body', () => {
             columns={ columns }
             data={ data }
             rowEvents={ rowEvents }
-          />);
+          />
+        );
       });
 
       it('should rendering Row component with correct attrs prop', () => {
@@ -255,8 +263,12 @@ describe('Body', () => {
   });
 
   describe('when cellEdit.createContext props is defined', () => {
-    const EditingCellComponent = () => null;
-    const RowComponent = props => <Row { ...props } />;
+    function EditingCellComponent() {
+      return null;
+    }
+    function RowComponent(props) {
+      return <Row { ...props } />;
+    }
     const cellEdit = {
       options: { onStartEdit: jest.fn() },
       createContext: jest.fn(),

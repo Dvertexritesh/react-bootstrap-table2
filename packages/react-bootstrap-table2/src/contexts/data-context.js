@@ -9,17 +9,17 @@ export default () => {
     static propTypes = {
       data: PropTypes.array.isRequired,
       children: PropTypes.node.isRequired
-    }
+    };
 
     state = { data: this.props.data };
 
     getData = (filterProps, searchProps, sortProps, paginationProps) => {
       if (paginationProps) return paginationProps.data;
-      else if (sortProps) return sortProps.data;
-      else if (searchProps) return searchProps.data;
-      else if (filterProps) return filterProps.data;
+      if (sortProps) return sortProps.data;
+      if (searchProps) return searchProps.data;
+      if (filterProps) return filterProps.data;
       return this.props.data;
-    }
+    };
 
     UNSAFE_componentWillReceiveProps(nextProps) {
       this.setState(() => ({ data: nextProps.data }));

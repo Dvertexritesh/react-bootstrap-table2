@@ -8,8 +8,10 @@ import withSelectionConsumer from '../../src/row-selection/row-consumer';
 describe('withSelectionConsumer', () => {
   let wrapper;
   let selectRow;
-  const BaseComponent = () => null;
-  const WithSelectionComponent = withSelectionConsumer(props => <BaseComponent { ...props } />);
+  function BaseComponent() {
+    return null;
+  }
+  const WithSelectionComponent = withSelectionConsumer((props) => <BaseComponent { ...props } />);
 
   const data = [{
     id: 1,

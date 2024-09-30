@@ -10,7 +10,7 @@ describe('Pagination', () => {
   let wrapper;
   let instance;
 
-  const createMockProps = props => ({
+  const createMockProps = (props) => ({
     dataSize: 100,
     sizePerPageList: [10, 20, 30, 50],
     currPage: 1,
@@ -48,7 +48,8 @@ describe('Pagination', () => {
       expect(instance.state).toBeDefined();
       expect(instance.state.totalPages).toEqual(instance.calculateTotalPage());
       expect(instance.state.lastPage).toEqual(
-        instance.calculateLastPage(instance.state.totalPages));
+        instance.calculateLastPage(instance.state.totalPages)
+      );
       expect(instance.state.dropdownOpen).toBeFalsy();
     });
   });

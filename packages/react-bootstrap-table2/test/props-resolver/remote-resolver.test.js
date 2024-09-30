@@ -243,8 +243,7 @@ describe('remoteResolver', () => {
     it('should calling props.onTableChange correctly', () => {
       const cellEdit = { rowId, dataField, newValue };
       expect(onTableChangeCB.calledOnce).toBeTruthy();
-      expect(onTableChangeCB.calledWith(
-        'cellEdit', wrapper.instance().getNewestState({ cellEdit }))).toBeTruthy();
+      expect(onTableChangeCB.calledWith('cellEdit', wrapper.instance().getNewestState({ cellEdit }))).toBeTruthy();
     });
   });
 

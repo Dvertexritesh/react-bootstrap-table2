@@ -56,7 +56,6 @@ const defaultSorted = [{
 />
 `;
 
-
 class DefaultSortTable extends React.PureComponent {
   render() {
     return (

@@ -22,7 +22,7 @@ const columns = [
   {
     dataField: 'price',
     text: 'Product Price',
-    footer: columnData => columnData.reduce((acc, item) => acc + item, 0)
+    footer: (columnData) => columnData.reduce((acc, item) => acc + item, 0)
   }
 ];
 
@@ -44,9 +44,11 @@ const columns = [
 />
 `;
 
-export default () => (
-  <div>
-    <BootstrapTable keyField="id" data={ products } columns={ columns } />
-    <Code>{sourceCode}</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable keyField="id" data={ products } columns={ columns } />
+      <Code>{sourceCode}</Code>
+    </div>
+  );
+}

@@ -50,9 +50,11 @@ const columns = [{
 <BootstrapTable keyField='id' data={ products } columns={ columns } />
 `;
 
-export default () => (
-  <div>
-    <BootstrapTable keyField="id" data={ products } columns={ columns } defaultSorted={ defaultSorted } />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable keyField="id" data={ products } columns={ columns } defaultSorted={ defaultSorted } />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

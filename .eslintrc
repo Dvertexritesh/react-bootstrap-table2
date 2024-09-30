@@ -1,6 +1,12 @@
 {
   "extends": "airbnb",
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",  // Updated to recommended parser
+  "parserOptions": {
+    "requireConfigFile": false,  // Required for using @babel/eslint-parser without a separate Babel config file
+    "babelOptions": {
+      "presets": ["@babel/preset-react"]  // Ensures Babel is aware of React JSX
+    }
+  },
   "env": {
     "browser": true,
     "jest": true,
@@ -10,16 +16,18 @@
     "react"
   ],
   "rules": {
-    "comma-dangle": ["error", "never"],
-    "react/jsx-curly-spacing": [2, "always"],
-    "react/forbid-prop-types": 0,
-    "react/jsx-filename-extension": 0,
-    "react/jsx-space-before-closing": 0,
-    "react/jsx-tag-spacing": ["error", { "beforeSelfClosing": "always" }],
-    "import/extensions": 0, // skip import extensions
-    "import/no-unresolved": [0, { "ignore": ["^react-bootstrap-table"] }], // monorepo setup
-    "import/prefer-default-export": 0,
-    "import/no-extraneous-dependencies": 0
+    "comma-dangle": ["error", "never"],  // Disallow trailing commas
+    "react/jsx-curly-spacing": [2, "always"],  // Enforce spaces inside JSX curly braces
+    "react/forbid-prop-types": 0,  // Allow all prop-types
+    "react/jsx-filename-extension": 0,  // Allow JSX in files with any extension
+    "react/jsx-space-before-closing": 0,  // Allow custom spacing before self-closing tag
+    "react/jsx-tag-spacing": ["error", { "beforeSelfClosing": "always" }],  // Enforce space before closing tag
+    "import/extensions": 0,  // Skip import extensions
+    "import/no-unresolved": [0, { "ignore": ["^react-bootstrap-table"] }],  // Monorepo setup, allow unresolved imports for certain modules
+    "import/prefer-default-export": 0,  // Allow named exports
+    "import/no-extraneous-dependencies": 0,  // Allow dependencies that might be necessary
+    "linebreak-style": 0, // Turn off linebreak-style rule
+    "react/jsx-props-no-spreading": "off"
   },
   "globals": {
     "jest": false

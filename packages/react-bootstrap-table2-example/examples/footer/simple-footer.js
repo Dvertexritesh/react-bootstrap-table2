@@ -44,9 +44,11 @@ const columns = [
 />
 `;
 
-export default () => (
-  <div>
-    <BootstrapTable keyField="id" data={ products } columns={ columns } />
-    <Code>{sourceCode}</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable keyField="id" data={ products } columns={ columns } />
+      <Code>{sourceCode}</Code>
+    </div>
+  );
+}

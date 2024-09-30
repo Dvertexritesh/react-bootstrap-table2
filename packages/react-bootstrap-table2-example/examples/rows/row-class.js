@@ -73,11 +73,13 @@ const rowClasses = (row, rowIndex) => {
 <BootstrapTable keyField='id' data={ products } columns={ columns } rowClasses={ rowClasses } />
 `;
 
-export default () => (
-  <div>
-    <BootstrapTable keyField="id" data={ products } columns={ columns } rowClasses={ rowClasses1 } />
-    <Code>{ sourceCode1 }</Code>
-    <BootstrapTable keyField="id" data={ products } columns={ columns } rowClasses={ rowClasses2 } />
-    <Code>{ sourceCode2 }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable keyField="id" data={ products } columns={ columns } rowClasses={ rowClasses1 } />
+      <Code>{ sourceCode1 }</Code>
+      <BootstrapTable keyField="id" data={ products } columns={ columns } rowClasses={ rowClasses2 } />
+      <Code>{ sourceCode2 }</Code>
+    </div>
+  );
+}

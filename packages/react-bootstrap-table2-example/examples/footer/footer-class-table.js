@@ -53,9 +53,11 @@ const columns = [
 />
 `;
 
-export default () => (
-  <div>
-    <BootstrapTable keyField="id" data={ products } columns={ columns } footerClasses="footer-class" />
-    <Code>{sourceCode}</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable keyField="id" data={ products } columns={ columns } footerClasses="footer-class" />
+      <Code>{sourceCode}</Code>
+    </div>
+  );
+}

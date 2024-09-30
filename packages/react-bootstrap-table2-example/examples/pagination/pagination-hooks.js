@@ -69,14 +69,16 @@ const options = {
   }
 };
 
-export default () => (
-  <div>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      pagination={ paginationFactory(options) }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        pagination={ paginationFactory(options) }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

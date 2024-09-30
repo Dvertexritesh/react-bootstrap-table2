@@ -19,7 +19,7 @@ const columns = [{
 
 const expandRow1 = {
   parentClassName: 'parent-expand-foo',
-  renderer: row => (
+  renderer: (row) => (
     <div>
       <p>{ `This Expand row is belong to rowKey ${row.id}` }</p>
       <p>You can render anything here, also you can add additional data on every row object</p>
@@ -33,7 +33,7 @@ const expandRow2 = {
     if (rowIndex > 2) return 'parent-expand-foo';
     return 'parent-expand-bar';
   },
-  renderer: row => (
+  renderer: (row) => (
     <div>
       <p>{ `This Expand row is belong to rowKey ${row.id}` }</p>
       <p>You can render anything here, also you can add additional data on every row object</p>
@@ -41,7 +41,6 @@ const expandRow2 = {
     </div>
   )
 };
-
 
 const sourceCode1 = `\
 import BootstrapTable from 'react-bootstrap-table-next';
@@ -86,21 +85,23 @@ const expandRow = {
 />
 `;
 
-export default () => (
-  <div>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      expandRow={ expandRow1 }
-    />
-    <Code>{ sourceCode1 }</Code>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      expandRow={ expandRow2 }
-    />
-    <Code>{ sourceCode2 }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        expandRow={ expandRow1 }
+      />
+      <Code>{ sourceCode1 }</Code>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        expandRow={ expandRow2 }
+      />
+      <Code>{ sourceCode2 }</Code>
+    </div>
+  );
+}

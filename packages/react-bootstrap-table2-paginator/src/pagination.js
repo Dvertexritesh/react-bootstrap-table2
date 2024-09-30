@@ -38,9 +38,11 @@ class Pagination extends pageResolver(Component) {
     const pages = this.calculatePageStatus(this.calculatePages(totalPages, lastPage), lastPage);
     const pageListClass = cs(
       'react-bootstrap-table-pagination-list',
-      'col-md-6 col-xs-6 col-sm-6 col-lg-6', {
+      'col-md-6 col-xs-6 col-sm-6 col-lg-6',
+      {
         'react-bootstrap-table-pagination-list-hidden': (hidePageListOnlyOnePage && totalPages === 1)
-      });
+      }
+    );
     return (
       <div className="row react-bootstrap-table-pagination">
         <div className="col-md-6 col-xs-6 col-sm-6 col-lg-6">
@@ -55,14 +57,16 @@ class Pagination extends pageResolver(Component) {
             onSizePerPageChange={ onSizePerPageChange }
           />
           {
-            showTotal ?
-              <PaginationTotalWithAdapter
-                currPage={ currPage }
-                currSizePerPage={ currSizePerPage }
-                pageStartIndex={ pageStartIndex }
-                dataSize={ dataSize }
-                paginationTotalRenderer={ paginationTotalRenderer }
-              /> : null
+            showTotal
+              ? (
+                <PaginationTotalWithAdapter
+                  currPage={ currPage }
+                  currSizePerPage={ currSizePerPage }
+                  pageStartIndex={ pageStartIndex }
+                  dataSize={ dataSize }
+                  paginationTotalRenderer={ paginationTotalRenderer }
+                />
+              ) : null
           }
         </div>
         {

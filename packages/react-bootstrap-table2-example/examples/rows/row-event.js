@@ -54,10 +54,12 @@ const rowEvents = {
 <BootstrapTable keyField='id' data={ products } columns={ columns } rowEvents={ rowEvents } />
 `;
 
-export default () => (
-  <div>
-    <h3>Try to click or hover on any rows</h3>
-    <BootstrapTable keyField="id" data={ products } columns={ columns } rowEvents={ rowEvents } />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <h3>Try to click or hover on any rows</h3>
+      <BootstrapTable keyField="id" data={ products } columns={ columns } rowEvents={ rowEvents } />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

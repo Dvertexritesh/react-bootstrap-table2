@@ -69,18 +69,20 @@ function beforeSaveCell(oldValue, newValue, row, column, done) {
   return { async: true };
 }
 
-export default () => (
-  <div>
-    <h2>You will get a confirm prompt when you try to save a cell</h2>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      cellEdit={ cellEditFactory({
-        mode: 'click',
-        beforeSaveCell
-      }) }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <h2>You will get a confirm prompt when you try to save a cell</h2>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        cellEdit={ cellEditFactory({
+          mode: 'click',
+          beforeSaveCell
+        }) }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

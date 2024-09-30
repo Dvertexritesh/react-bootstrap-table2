@@ -24,7 +24,7 @@ export default (options = {
       columns: PropTypes.array.isRequired,
       searchText: PropTypes.string,
       dataChangeListener: PropTypes.object
-    }
+    };
 
     constructor(props) {
       super(props);

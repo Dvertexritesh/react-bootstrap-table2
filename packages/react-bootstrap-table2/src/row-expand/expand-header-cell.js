@@ -8,7 +8,7 @@ export default class ExpansionHeaderCell extends Component {
     isAnyExpands: PropTypes.bool.isRequired,
     onAllRowExpand: PropTypes.func.isRequired,
     expandHeaderColumnRenderer: PropTypes.func
-  }
+  };
 
   constructor() {
     super();
@@ -30,9 +30,9 @@ export default class ExpansionHeaderCell extends Component {
     return (
       <th className="expand-cell-header" data-row-selection { ...attrs }>
         {
-          expandHeaderColumnRenderer ?
-            expandHeaderColumnRenderer({ isAnyExpands }) :
-            (isAnyExpands ? '(-)' : '(+)')
+          expandHeaderColumnRenderer
+            ? expandHeaderColumnRenderer({ isAnyExpands })
+            : (isAnyExpands ? '(-)' : '(+)')
         }
       </th>
     );

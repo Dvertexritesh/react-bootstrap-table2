@@ -105,19 +105,21 @@ function afterSaveCell(oldValue, newValue) {
   console.log(`and the type is ${typeof newValue}`);
 }
 
-export default () => (
-  <div>
-    <h3>Save Cell Value with Specified Data Type</h3>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      cellEdit={ cellEditFactory({
-        mode: 'click',
-        blurToSave: true,
-        afterSaveCell
-      }) }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <h3>Save Cell Value with Specified Data Type</h3>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        cellEdit={ cellEditFactory({
+          mode: 'click',
+          blurToSave: true,
+          afterSaveCell
+        }) }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

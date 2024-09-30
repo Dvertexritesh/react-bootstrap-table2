@@ -30,7 +30,7 @@ export default (
         timeToCloseMessage: PropTypes.number,
         errorMessage: PropTypes.any
       })
-    }
+    };
 
     constructor(props) {
       super(props);
@@ -158,4 +158,4 @@ export default (
   };
 };
 
-export const Consumer = CellEditContext.Consumer;
+export const { Consumer } = CellEditContext;

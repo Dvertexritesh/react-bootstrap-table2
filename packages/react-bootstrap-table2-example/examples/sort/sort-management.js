@@ -68,21 +68,21 @@ export default class SortManagement extends React.Component {
   state = {
     field: null,
     order: null
-  }
+  };
 
   handleSort = (field, order) => {
     this.setState({
       field,
       order
     });
-  }
+  };
 
   handleSortById = () => {
     this.setState({
       field: 'id',
       order: 'desc'
     });
-  }
+  };
 
   render() {
     const columns = [{

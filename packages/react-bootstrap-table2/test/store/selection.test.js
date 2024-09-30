@@ -17,7 +17,7 @@ describe('Selection Function', () => {
 
   describe('selectableKeys', () => {
     it('should returning all row keys if skip is empty', () => {
-      expect(selectableKeys(data, keyField)).toEqual(data.map(d => d[keyField]));
+      expect(selectableKeys(data, keyField)).toEqual(data.map((d) => d[keyField]));
     });
 
     it('should returngin row keys expect the skip', () => {
@@ -33,14 +33,14 @@ describe('Selection Function', () => {
 
     it('should returning array which must contain skip', () => {
       skip = [data[1][keyField]];
-      const selected = data.map(d => d[keyField]);
+      const selected = data.map((d) => d[keyField]);
       expect(unSelectableKeys(selected, skip)).toHaveLength(skip.length);
     });
   });
 
   describe('getSelectedRows', () => {
     it('should returning rows object correctly', () => {
-      const selected = data.map(d => d[keyField]);
+      const selected = data.map((d) => d[keyField]);
       const result = getSelectedRows(data, keyField, selected);
       expect(result).toHaveLength(selected.length);
       expect(result).toEqual(data);
@@ -60,7 +60,7 @@ describe('Selection Function', () => {
 
     describe('if selected argument is able to cover all the data argument', () => {
       it('should return an obj which allRowsSelected is true and allRowsNotSelected is false', () => {
-        const selected = data.map(d => d[keyField]);
+        const selected = data.map((d) => d[keyField]);
         result = getSelectionSummary(data, keyField, selected);
         expect(result).toEqual({
           allRowsSelected: true,

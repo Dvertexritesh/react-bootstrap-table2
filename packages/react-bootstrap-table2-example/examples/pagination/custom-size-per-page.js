@@ -63,7 +63,7 @@ const sizePerPageRenderer = ({
 }) => (
   <div className="btn-group" role="group">
     {
-      options.map(option => (
+      options.map((option) => (
         <button
           key={ option.text }
           type="button"
@@ -81,9 +81,11 @@ const options = {
   sizePerPageRenderer
 };
 
-export default () => (
-  <div>
-    <BootstrapTable keyField="id" data={ products } columns={ columns } pagination={ paginationFactory(options) } />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable keyField="id" data={ products } columns={ columns } pagination={ paginationFactory(options) } />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

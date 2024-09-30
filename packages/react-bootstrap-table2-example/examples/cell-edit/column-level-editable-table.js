@@ -47,18 +47,20 @@ const columns = [{
 />
 `;
 
-export default () => (
-  <div>
-    <h3>Product Name is non editable</h3>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      cellEdit={ cellEditFactory({
-        mode: 'click',
-        blurToSave: true
-      }) }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <h3>Product Name is non editable</h3>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        cellEdit={ cellEditFactory({
+          mode: 'click',
+          blurToSave: true
+        }) }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

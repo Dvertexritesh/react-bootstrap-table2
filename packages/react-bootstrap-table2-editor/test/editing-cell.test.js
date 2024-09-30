@@ -15,14 +15,15 @@ import CheckBoxEditor from '../src/checkbox-editor';
 import EditorIndicator from '../src/editor-indicator';
 
 const EditingCell = editingCellFactory(_);
-const TableRowWrapper = props => (
-  <table>
-    <tbody>
-      <tr>{ props.children }</tr>
-    </tbody>
-  </table>
-);
-
+function TableRowWrapper(props) {
+  return (
+    <table>
+      <tbody>
+        <tr>{ props.children }</tr>
+      </tbody>
+    </table>
+  );
+}
 
 describe('EditingCell', () => {
   let wrapper;
@@ -388,7 +389,9 @@ describe('EditingCell', () => {
   });
 
   describe('if column.editorRenderer is defined', () => {
-    const TestEditor = () => <input type="text" />;
+    function TestEditor() {
+      return <input type="text" />;
+    }
 
     beforeEach(() => {
       column = {

@@ -6,7 +6,7 @@ import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
 import { productsGenerator } from 'utils/common';
 
 const { SearchBar } = Search;
-const ProductList = (props) => {
+function ProductList(props) {
   const columns = [
     {
       dataField: 'id',
@@ -32,7 +32,7 @@ const ProductList = (props) => {
         search
       >
         {
-          toolkitprops => (
+          (toolkitprops) => (
             <div>
               <SearchBar { ...toolkitprops.searchProps } />
               <BootstrapTable
@@ -46,7 +46,7 @@ const ProductList = (props) => {
       </ToolkitProvider>
     </div>
   );
-};
+}
 
 export default class DataContainer extends React.Component {
   state = {
@@ -57,7 +57,7 @@ export default class DataContainer extends React.Component {
     this.setState({
       products: productsGenerator()
     });
-  }
+  };
 
   render() {
     return (

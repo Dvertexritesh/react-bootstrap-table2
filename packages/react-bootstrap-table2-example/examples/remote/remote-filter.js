@@ -96,19 +96,21 @@ class Container extends React.Component {
 }
 `;
 
-const RemoteFilter = props => (
-  <div>
-    <BootstrapTable
-      remote={ { filter: true } }
-      keyField="id"
-      data={ props.data }
-      columns={ columns }
-      filter={ filterFactory() }
-      onTableChange={ props.onTableChange }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+function RemoteFilter(props) {
+  return (
+    <div>
+      <BootstrapTable
+        remote={ { filter: true } }
+        keyField="id"
+        data={ props.data }
+        columns={ columns }
+        filter={ filterFactory() }
+        onTableChange={ props.onTableChange }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}
 
 RemoteFilter.propTypes = {
   data: PropTypes.array.isRequired,
@@ -145,7 +147,7 @@ class Container extends React.Component {
         data: result
       }));
     }, 2000);
-  }
+  };
 
   render() {
     return (

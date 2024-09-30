@@ -15,13 +15,13 @@ export default (Component) => {
     const isClosing = _.contains(expandRow.isClosing, key);
     const expandable = !expandRow.nonExpandable || !_.contains(expandRow.nonExpandable, key);
     if (expanded) {
-      parentClassName = _.isFunction(expandRow.parentClassName) ?
-        expandRow.parentClassName(expanded, props.row, props.rowIndex) :
-        (expandRow.parentClassName || '');
+      parentClassName = _.isFunction(expandRow.parentClassName)
+        ? expandRow.parentClassName(expanded, props.row, props.rowIndex)
+        : (expandRow.parentClassName || '');
 
-      className = _.isFunction(expandRow.className) ?
-        expandRow.className(expanded, props.row, props.rowIndex) :
-        (expandRow.className || '');
+      className = _.isFunction(expandRow.className)
+        ? expandRow.className(expanded, props.row, props.rowIndex)
+        : (expandRow.className || '');
     }
 
     return [
@@ -33,20 +33,24 @@ export default (Component) => {
         expandRow={ { ...expandRow } }
         className={ cs(props.className, parentClassName) }
       />,
-      expanded || isClosing ? <ExpandRow
-        key={ `${key}-expanding` }
-        colSpan={ props.visibleColumnSize }
-        expanded={ expanded }
-        onClosed={ () => expandRow.onClosed(key) }
-        className={ className }
-      >
-        { expandRow.renderer(props.row, props.rowIndex) }
-      </ExpandRow> : null
+      expanded || isClosing ? (
+        <ExpandRow
+          key={ `${key}-expanding` }
+          colSpan={ props.visibleColumnSize }
+          expanded={ expanded }
+          onClosed={ () => expandRow.onClosed(key) }
+          className={ className }
+        >
+          { expandRow.renderer(props.row, props.rowIndex) }
+        </ExpandRow>
+      ) : null
     ];
   };
-  return props => (
-    <ExpansionContext.Consumer>
-      { expandRow => renderWithExpansion(props, expandRow) }
-    </ExpansionContext.Consumer>
-  );
+  return function (props) {
+    return (
+      <ExpansionContext.Consumer>
+        { (expandRow) => renderWithExpansion(props, expandRow) }
+      </ExpansionContext.Consumer>
+    );
+  };
 };

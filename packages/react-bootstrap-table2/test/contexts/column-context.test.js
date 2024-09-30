@@ -24,7 +24,7 @@ describe('ColumnManagementContext', () => {
     text: 'Name'
   }];
 
-  const mockBase = jest.fn((props => (
+  const mockBase = jest.fn(((props) => (
     <BootstrapTable
       data={ data }
       columns={ columns }
@@ -44,7 +44,7 @@ describe('ColumnManagementContext', () => {
       >
         <ColumnManagementContext.Consumer>
           {
-            columnToggleProps => mockBase(columnToggleProps)
+            (columnToggleProps) => mockBase(columnToggleProps)
           }
         </ColumnManagementContext.Consumer>
       </ColumnManagementContext.Provider>

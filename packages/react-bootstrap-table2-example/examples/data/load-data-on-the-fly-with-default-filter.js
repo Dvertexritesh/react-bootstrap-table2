@@ -5,7 +5,7 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import filterFactory, { textFilter } from 'react-bootstrap-table2-filter';
 import { productsGenerator } from 'utils/common';
 
-const ProductList = (props) => {
+function ProductList(props) {
   const columns = [
     {
       dataField: 'id',
@@ -36,7 +36,7 @@ const ProductList = (props) => {
       />
     </div>
   );
-};
+}
 
 export default class DataContainer extends React.Component {
   state = {
@@ -47,7 +47,7 @@ export default class DataContainer extends React.Component {
     this.setState({
       products: productsGenerator(14)
     });
-  }
+  };
 
   render() {
     return (

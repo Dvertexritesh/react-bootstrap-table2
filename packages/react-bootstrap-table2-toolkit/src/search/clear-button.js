@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ClearButton = ({
+function ClearButton({
   onClear,
   text,
   className
-}) => (
-  <button className={ `btn btn-default ${className}` } onClick={ onClear }>{ text }</button>
-);
+}) {
+  return <button className={ `btn btn-default ${className}` } onClick={ onClear }>{ text }</button>;
+}
 
 ClearButton.propTypes = {
   onClear: PropTypes.func.isRequired,

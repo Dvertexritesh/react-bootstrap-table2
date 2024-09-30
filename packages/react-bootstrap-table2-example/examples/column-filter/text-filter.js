@@ -49,15 +49,17 @@ const selectRow = {
   clickToSelect: true
 };
 
-export default () => (
-  <div>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      filter={ filterFactory() }
-      selectRow={ selectRow }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        filter={ filterFactory() }
+        selectRow={ selectRow }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

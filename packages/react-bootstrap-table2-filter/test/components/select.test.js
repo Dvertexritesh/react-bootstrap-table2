@@ -5,7 +5,6 @@ import { mount } from 'enzyme';
 import SelectFilter from '../../src/components/select';
 import { FILTER_TYPE } from '../../src/const';
 
-
 describe('Select Filter', () => {
   let wrapper;
   let instance;

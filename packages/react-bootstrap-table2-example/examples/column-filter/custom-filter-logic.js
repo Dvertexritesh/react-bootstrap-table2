@@ -52,10 +52,10 @@ class Table extends React.Component {
 export default class Table extends React.Component {
   filterByPrice = (filterVal, data) => {
     if (filterVal) {
-      return data.filter(product => product.price == filterVal);
+      return data.filter((product) => product.price == filterVal);
     }
     return data;
-  }
+  };
 
   render() {
     const columns = [{

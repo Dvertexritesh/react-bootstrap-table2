@@ -4,11 +4,16 @@ import React from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import Code from 'components/common/code-block';
 
-
 const products = [
-  { id: 12, name: 'Item 12', price: 12.5, inStock: false },
-  { id: 13, name: 'Item 13', price: 13.5, inStock: true },
-  { id: 14, name: 'Item 14', price: 14.5, inStock: true }
+  {
+    id: 12, name: 'Item 12', price: 12.5, inStock: false
+  },
+  {
+    id: 13, name: 'Item 13', price: 13.5, inStock: true
+  },
+  {
+    id: 14, name: 'Item 14', price: 14.5, inStock: true
+  }
 ];
 
 const sourceCode = `\
@@ -148,12 +153,12 @@ class ProductList extends React.Component {
       }
       return d;
     });
-    this.setState(curr => ({ ...curr, products: newProducts }));
+    this.setState((curr) => ({ ...curr, products: newProducts }));
   };
 
   counter = () => {
-    this.setState(curr => ({ ...curr, count: this.state.count + 1 }));
-  }
+    this.setState((curr) => ({ ...curr, count: this.state.count + 1 }));
+  };
 
   render() {
     const columns = [
@@ -162,9 +167,15 @@ class ProductList extends React.Component {
         text: 'Product ID',
         formatter: (cell, row, rowIndex, extraData) => (
           <div>
-            <span>ID: {row.id}</span>
+            <span>
+              ID:
+              {row.id}
+            </span>
             <br />
-            <span>Counter: {extraData}</span>
+            <span>
+              Counter:
+              {extraData}
+            </span>
           </div>
         ),
         formatExtraData: this.state.count

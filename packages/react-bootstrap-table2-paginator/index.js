@@ -13,11 +13,13 @@ export default (options = {}) => ({
 
 const { Provider, Consumer } = createBaseContext();
 
-const CustomizableProvider = props => (
-  <Provider { ...props }>
-    <Consumer>{ paginationProps => props.children(paginationProps) }</Consumer>
-  </Provider>
-);
+function CustomizableProvider(props) {
+  return (
+    <Provider { ...props }>
+      <Consumer>{ (paginationProps) => props.children(paginationProps) }</Consumer>
+    </Provider>
+  );
+}
 
 CustomizableProvider.propTypes = {
   children: PropTypes.func.isRequired

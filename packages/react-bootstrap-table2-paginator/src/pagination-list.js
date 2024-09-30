@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 
 import PageButton from './page-button';
 
-const PaginatonList = props => (
-  <ul className="pagination react-bootstrap-table-page-btns-ul">
-    {
+function PaginatonList(props) {
+  return (
+    <ul className="pagination react-bootstrap-table-page-btns-ul">
+      {
       props.pages.map((pageProps) => {
         if (props.pageButtonRenderer) {
           return props.pageButtonRenderer({
@@ -22,8 +23,9 @@ const PaginatonList = props => (
         );
       })
     }
-  </ul>
-);
+    </ul>
+  );
+}
 
 PaginatonList.propTypes = {
   pages: PropTypes.arrayOf(PropTypes.shape({

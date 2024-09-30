@@ -1,22 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ToggleList = ({
+function ToggleList({
   columns,
   onColumnToggle,
   toggles,
   contextual,
   className,
   btnClassName
-}) => (
-  <div className={ `btn-group btn-group-toggle ${className}` } data-toggle="buttons">
-    {
+}) {
+  return (
+    <div className={ `btn-group btn-group-toggle ${className}` } data-toggle="buttons">
+      {
       columns
-        .map(column => ({
+        .map((column) => ({
           ...column,
           toggle: toggles[column.dataField]
         }))
-        .map(column => (
+        .map((column) => (
           <button
             type="button"
             key={ column.dataField }
@@ -29,8 +30,9 @@ const ToggleList = ({
           </button>
         ))
     }
-  </div>
-);
+    </div>
+  );
+}
 
 ToggleList.propTypes = {
   columns: PropTypes.array.isRequired,

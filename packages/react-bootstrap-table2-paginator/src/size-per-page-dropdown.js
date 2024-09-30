@@ -5,7 +5,7 @@ import SizePerPageOption from './size-per-page-option';
 
 const sizePerPageDefaultClass = 'react-bs-table-sizePerPage-dropdown';
 
-const SizePerPageDropDown = (props) => {
+function SizePerPageDropDown(props) {
   const {
     open,
     tableId,
@@ -28,7 +28,7 @@ const SizePerPageDropDown = (props) => {
     openClass,
     sizePerPageDefaultClass,
     variation,
-    className,
+    className
   );
 
   const id = tableId ? `${tableId}-pageDropDown` : 'pageDropDown';
@@ -83,7 +83,7 @@ const SizePerPageDropDown = (props) => {
       </ul>
     </span>
   );
-};
+}
 
 SizePerPageDropDown.propTypes = {
   currSizePerPage: PropTypes.string.isRequired,
@@ -110,6 +110,5 @@ SizePerPageDropDown.defaultProps = {
   bootstrap4: false,
   tableId: null
 };
-
 
 export default SizePerPageDropDown;

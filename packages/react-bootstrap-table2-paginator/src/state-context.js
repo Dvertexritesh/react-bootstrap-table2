@@ -49,16 +49,16 @@ class StateProvider extends React.Component {
   getPaginationProps = () => {
     const { pagination: { options }, bootstrap4, tableId } = this.props;
     const { currPage, currSizePerPage, dataSize } = this;
-    const withFirstAndLast = typeof options.withFirstAndLast === 'undefined' ?
-      Const.With_FIRST_AND_LAST : options.withFirstAndLast;
-    const alwaysShowAllBtns = typeof options.alwaysShowAllBtns === 'undefined' ?
-      Const.SHOW_ALL_PAGE_BTNS : options.alwaysShowAllBtns;
-    const hideSizePerPage = typeof options.hideSizePerPage === 'undefined' ?
-      Const.HIDE_SIZE_PER_PAGE : options.hideSizePerPage;
-    const hidePageListOnlyOnePage = typeof options.hidePageListOnlyOnePage === 'undefined' ?
-      Const.HIDE_PAGE_LIST_ONLY_ONE_PAGE : options.hidePageListOnlyOnePage;
-    const pageStartIndex = typeof options.pageStartIndex === 'undefined' ?
-      Const.PAGE_START_INDEX : options.pageStartIndex;
+    const withFirstAndLast = typeof options.withFirstAndLast === 'undefined'
+      ? Const.With_FIRST_AND_LAST : options.withFirstAndLast;
+    const alwaysShowAllBtns = typeof options.alwaysShowAllBtns === 'undefined'
+      ? Const.SHOW_ALL_PAGE_BTNS : options.alwaysShowAllBtns;
+    const hideSizePerPage = typeof options.hideSizePerPage === 'undefined'
+      ? Const.HIDE_SIZE_PER_PAGE : options.hideSizePerPage;
+    const hidePageListOnlyOnePage = typeof options.hidePageListOnlyOnePage === 'undefined'
+      ? Const.HIDE_PAGE_LIST_ONLY_ONE_PAGE : options.hidePageListOnlyOnePage;
+    const pageStartIndex = typeof options.pageStartIndex === 'undefined'
+      ? Const.PAGE_START_INDEX : options.pageStartIndex;
     return {
       ...options,
       bootstrap4,
@@ -90,11 +90,11 @@ class StateProvider extends React.Component {
       onPageChange: this.handleChangePage,
       onSizePerPageChange: this.handleChangeSizePerPage
     };
-  }
+  };
 
   setPaginationRemoteEmitter = (remoteEmitter) => {
     this.remoteEmitter = remoteEmitter;
-  }
+  };
 
   getPaginationRemoteEmitter = () => this.remoteEmitter || this.props.remoteEmitter;
 
@@ -123,8 +123,8 @@ class StateProvider extends React.Component {
 
   handleDataSizeChange(newDataSize) {
     const { pagination: { options } } = this.props;
-    const pageStartIndex = typeof options.pageStartIndex === 'undefined' ?
-      Const.PAGE_START_INDEX : options.pageStartIndex;
+    const pageStartIndex = typeof options.pageStartIndex === 'undefined'
+      ? Const.PAGE_START_INDEX : options.pageStartIndex;
     this.currPage = alignPage(
       newDataSize,
       this.dataSize,

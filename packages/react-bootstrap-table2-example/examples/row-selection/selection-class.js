@@ -27,8 +27,7 @@ const selectRow1 = {
 const selectRow2 = {
   mode: 'checkbox',
   clickToSelect: true,
-  classes: (row, rowIndex) =>
-    (rowIndex > 1 ? 'row-index-bigger-than-2101' : 'row-index-small-than-2101')
+  classes: (row, rowIndex) => (rowIndex > 1 ? 'row-index-bigger-than-2101' : 'row-index-small-than-2101')
 };
 
 const sourceCode1 = `\
@@ -86,11 +85,13 @@ const selectRow = {
 />
 `;
 
-export default () => (
-  <div>
-    <BootstrapTable keyField="id" data={ products } columns={ columns } selectRow={ selectRow1 } />
-    <Code>{ sourceCode1 }</Code>
-    <BootstrapTable keyField="id" data={ products } columns={ columns } selectRow={ selectRow2 } />
-    <Code>{ sourceCode2 }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable keyField="id" data={ products } columns={ columns } selectRow={ selectRow1 } />
+      <Code>{ sourceCode1 }</Code>
+      <BootstrapTable keyField="id" data={ products } columns={ columns } selectRow={ selectRow2 } />
+      <Code>{ sourceCode2 }</Code>
+    </div>
+  );
+}

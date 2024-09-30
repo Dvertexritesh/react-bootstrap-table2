@@ -18,7 +18,7 @@ class PaginationDataProvider extends Provider {
     data: PropTypes.array.isRequired,
     remoteEmitter: PropTypes.object.isRequired,
     isRemotePagination: PropTypes.func.isRequired
-  }
+  };
 
   // eslint-disable-next-line camelcase, react/sort-comp
   UNSAFE_componentWillReceiveProps(nextProps) {
@@ -26,8 +26,8 @@ class PaginationDataProvider extends Provider {
     const { currSizePerPage } = this;
     const { custom, onPageChange } = nextProps.pagination.options;
 
-    const pageStartIndex = typeof nextProps.pagination.options.pageStartIndex !== 'undefined' ?
-      nextProps.pagination.options.pageStartIndex : Const.PAGE_START_INDEX;
+    const pageStartIndex = typeof nextProps.pagination.options.pageStartIndex !== 'undefined'
+      ? nextProps.pagination.options.pageStartIndex : Const.PAGE_START_INDEX;
 
     // user should align the page when the page is not fit to the data size when remote enable
     if (!this.isRemotePagination() && !custom) {
@@ -72,18 +72,18 @@ class PaginationDataProvider extends Provider {
       );
     }
     return null;
-  }
+  };
 
   render() {
     let { data } = this.props;
     const { pagination: { options } } = this.props;
     const { currPage, currSizePerPage } = this;
-    const pageStartIndex = typeof options.pageStartIndex === 'undefined' ?
-      Const.PAGE_START_INDEX : options.pageStartIndex;
+    const pageStartIndex = typeof options.pageStartIndex === 'undefined'
+      ? Const.PAGE_START_INDEX : options.pageStartIndex;
 
-    data = this.isRemotePagination() ?
-      data :
-      getByCurrPage(
+    data = this.isRemotePagination()
+      ? data
+      : getByCurrPage(
         data,
         currPage,
         currSizePerPage,

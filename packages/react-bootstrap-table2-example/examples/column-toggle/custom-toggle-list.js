@@ -82,19 +82,20 @@ const CustomToggleList = ({
 </ToolkitProvider>
 `;
 
-const CustomToggleList = ({
+function CustomToggleList({
   columns,
   onColumnToggle,
   toggles
-}) => (
-  <div className="btn-group btn-group-toggle btn-group-vertical" data-toggle="buttons">
-    {
+}) {
+  return (
+    <div className="btn-group btn-group-toggle btn-group-vertical" data-toggle="buttons">
+      {
       columns
-        .map(column => ({
+        .map((column) => ({
           ...column,
           toggle: toggles[column.dataField]
         }))
-        .map(column => (
+        .map((column) => (
           <button
             type="button"
             key={ column.dataField }
@@ -107,19 +108,21 @@ const CustomToggleList = ({
           </button>
         ))
     }
-  </div>
-);
+    </div>
+  );
+}
 
-export default () => (
-  <div>
-    <ToolkitProvider
-      keyField="id"
-      data={ products }
-      columns={ columnsdt }
-      columnToggle
-    >
-      {
-        props => (
+export default function () {
+  return (
+    <div>
+      <ToolkitProvider
+        keyField="id"
+        data={ products }
+        columns={ columnsdt }
+        columnToggle
+      >
+        {
+        (props) => (
           <div>
             <CustomToggleList { ...props.columnToggleProps } />
             <hr />
@@ -129,7 +132,8 @@ export default () => (
           </div>
         )
       }
-    </ToolkitProvider>
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+      </ToolkitProvider>
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

@@ -48,19 +48,21 @@ const columns = [{
 />
 `;
 
-export default () => (
-  <div>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      cellEdit={ cellEditFactory({
-        mode: 'click',
-        onStartEdit: (row, column, rowIndex, columnIndex) => { console.log('Start to edit!!!'); },
-        beforeSaveCell: (oldValue, newValue, row, column) => { console.log('Before Saving Cell!!'); },
-        afterSaveCell: (oldValue, newValue, row, column) => { console.log('After Saving Cell!!'); }
-      }) }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        cellEdit={ cellEditFactory({
+          mode: 'click',
+          onStartEdit: (row, column, rowIndex, columnIndex) => { console.log('Start to edit!!!'); },
+          beforeSaveCell: (oldValue, newValue, row, column) => { console.log('Before Saving Cell!!'); },
+          afterSaveCell: (oldValue, newValue, row, column) => { console.log('After Saving Cell!!'); }
+        }) }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

@@ -72,18 +72,19 @@ const selectRow = {
 </ToolkitProvider>
 `;
 
-export default () => (
-  <div>
-    <h3>Export all the filtered/searched rows</h3>
-    <ToolkitProvider
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      exportCSV={ { onlyExportFiltered: true, exportAll: false } }
-      search
-    >
-      {
-        props => (
+export default function () {
+  return (
+    <div>
+      <h3>Export all the filtered/searched rows</h3>
+      <ToolkitProvider
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        exportCSV={ { onlyExportFiltered: true, exportAll: false } }
+        search
+      >
+        {
+        (props) => (
           <div>
             <ExportCSVButton { ...props.csvProps }>Export CSV!!</ExportCSVButton>
             <hr />
@@ -96,7 +97,8 @@ export default () => (
           </div>
         )
       }
-    </ToolkitProvider>
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+      </ToolkitProvider>
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

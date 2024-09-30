@@ -54,16 +54,18 @@ const selectRow = {
 />
 `;
 
-export default () => (
-  <div>
-    <h3>Double click to edit cell</h3>
-    <BootstrapTable
-      keyField="id"
-      data={ products }
-      columns={ columns }
-      selectRow={ selectRow }
-      cellEdit={ cellEditFactory({ mode: 'dbclick' }) }
-    />
-    <Code>{ sourceCode }</Code>
-  </div>
-);
+export default function () {
+  return (
+    <div>
+      <h3>Double click to edit cell</h3>
+      <BootstrapTable
+        keyField="id"
+        data={ products }
+        columns={ columns }
+        selectRow={ selectRow }
+        cellEdit={ cellEditFactory({ mode: 'dbclick' }) }
+      />
+      <Code>{ sourceCode }</Code>
+    </div>
+  );
+}

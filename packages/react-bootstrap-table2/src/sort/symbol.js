@@ -1,9 +1,10 @@
 import React from 'react';
 import { BootstrapContext } from '../contexts/bootstrap';
 
-const SortSymbol = () => (
-  <BootstrapContext.Consumer>
-    {
+function SortSymbol() {
+  return (
+    <BootstrapContext.Consumer>
+      {
       ({ bootstrap4 }) => (bootstrap4 ? (
         <span className="order-4" />
       ) : (
@@ -17,7 +18,8 @@ const SortSymbol = () => (
         </span>
       ))
     }
-  </BootstrapContext.Consumer>
-);
+    </BootstrapContext.Consumer>
+  );
+}
 
 export default SortSymbol;

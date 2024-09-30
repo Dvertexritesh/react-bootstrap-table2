@@ -24,7 +24,7 @@ describe('Sort Function', () => {
       result = sort(data, sortOrder, sortColumn);
       expect(result.length).toEqual(data.length);
 
-      const sortedArray = data.map(e => e.id).sort((a, b) => a - b);
+      const sortedArray = data.map((e) => e.id).sort((a, b) => a - b);
       sortedArray.forEach((e, i) => {
         expect(e).toEqual(result[i].id);
       });
@@ -35,7 +35,7 @@ describe('Sort Function', () => {
       result = sort(data, sortOrder, sortColumn);
       expect(result.length).toEqual(data.length);
 
-      const sortedArray = data.map(e => e.id).sort((a, b) => b - a);
+      const sortedArray = data.map((e) => e.id).sort((a, b) => b - a);
       sortedArray.forEach((e, i) => {
         expect(e).toEqual(result[i].id);
       });
